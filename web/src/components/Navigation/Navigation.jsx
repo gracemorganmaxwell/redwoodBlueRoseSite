@@ -1,8 +1,12 @@
+import logo from 'public/images/logo.png'
+
 const Navigation = () => {
   return (
     <div>
-      <h2>{'Navigation'}</h2>
-      <p>{'Find me in ./web/src/components/Navigation/Navigation.jsx'}</p>
+      <div>
+        <img src={logo} alt="Blue Rose Nails and Beauty Business Logo" />
+      </div>
+      <span></span>
     </div>
   )
 }

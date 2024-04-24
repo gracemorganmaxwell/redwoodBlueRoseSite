@@ -1,11 +1,13 @@
 import { Link, routes } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 
+import Navigation from 'src/components/Navigation/Navigation'
+
 const HomePage = () => {
   return (
     <>
       <Metadata title="Home" description="Home page" />
-
+      <Navigation />
       <h1>HomePage</h1>
       <p>
         Find me in <code>./web/src/pages/HomePage/HomePage.jsx</code>
