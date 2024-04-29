@@ -1,14 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 
 import activeHamburger from 'public/images/activeHamburger.svg'
 import hamburger from 'public/images/hamburger.svg'
+import useClickOutside from 'web/src/hooks/useClickOutside.js' // Import the custom hook
 
 const HamburgerBtn = () => {
   const [isOpen, setIsOpen] = useState(false) // Controls the state of the menu
-  const toggleMenu = () => setIsOpen(!isOpen) // Toggles the state
+
+  const toggleMenu = () => setIsOpen(!isOpen)
+  const menuRef = useRef() // Create a ref for the menu
+
+  useClickOutside(menuRef, () => setIsOpen(false)) // Use the hook to close the menu on outside clicks
 
   return (
-    <div className="relative">
+    <div ref={menuRef} className="relative">
       <button
         onClick={toggleMenu}
         aria-label="Menu button"
