@@ -24,13 +24,11 @@ const HamburgerBtn = () => {
       </button>
       {isOpen && (
         <div>
-          <ul>
-            <li>About</li>
-            <li>Treatments</li>
-            <li>Reviews</li>
-            <li>Gallery</li>
-            <li>Book Now</li>
-          </ul>
+          <a href="/#about">About</a>
+          <a href="/#treatments">Treatments</a>
+          <a href="/#reviews">Reviews</a>
+          <a href="/#gallery">Gallery</a>
+          <a href="/#book-now">Book Now</a>
         </div>
       )}
     </div>
