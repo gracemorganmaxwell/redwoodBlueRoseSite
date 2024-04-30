@@ -18,6 +18,18 @@ module.exports = {
       sans: ['Inter', 'sans-serif'],
       gfs_didot_regular: ['GFS Didot', 'serif'],
     },
+    fontSize: {
+      h1: ['1.5rem', { lineHeight: '1.25' }], // base for Mobile
+      subtitle: ['1.25rem', { lineHeight: '1.5' }], // base for Mobile
+      body: ['1rem', { lineHeight: '1.5' }], // base for Mobile
+      cta: ['1rem', { lineHeight: '1.5' }], // base for Mobile
+    },
+    screens: {
+      sm: '480px', // Mobile to Tablet
+      md: '768px', // Tablet to Small Desktop
+      lg: '1024px', // Small Desktop to Large Desktop
+      xl: '1440px', // Extra large screens
+    },
   },
   plugins: [],
 }
