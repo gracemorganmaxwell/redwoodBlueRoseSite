@@ -2,63 +2,62 @@ import React, { useState, useRef } from 'react'
 
 import activeHamburger from 'public/images/activeHamburger.svg'
 import hamburger from 'public/images/hamburger.svg'
-import useClickOutside from 'web/src/hooks/useClickOutside.js' // Import the custom hook
+import useClickOutside from 'web/src/hooks/useClickOutside.js'
 
 const HamburgerBtn = () => {
-  const [isOpen, setIsOpen] = useState(false) // Controls the state of the menu
-
+  const [isOpen, setIsOpen] = useState(false)
   const toggleMenu = () => setIsOpen(!isOpen)
-  const menuRef = useRef() // Create a ref for the menu
+  const menuRef = useRef()
 
-  useClickOutside(menuRef, () => setIsOpen(false)) // Use the hook to close the menu on outside clicks
+  useClickOutside(menuRef, () => setIsOpen(false))
 
   return (
     <div ref={menuRef} className="relative">
       <button
         onClick={toggleMenu}
         aria-label="Menu button"
-        className="flex h-20 w-20 items-center justify-center rounded-lg bg-darkBlue"
+        className="flex h-12 w-12 items-center justify-center rounded-lg bg-darkBlue transition duration-300 hover:bg-white md:hidden"
       >
         {isOpen ? (
           <img
             src={activeHamburger}
             alt="Close menu button"
-            className="h-16 w-16"
-          /> // Show active hamburger when open
+            className="h-8 w-8"
+          />
         ) : (
-          <img src={hamburger} alt="Menu button" className="h-16 w-16" /> // Show default hamburger when closed
+          <img src={hamburger} alt="Menu button" className="h-8 w-8" />
         )}
       </button>
       {isOpen && (
-        <div className="absolute right-0 top-full mt-2 rounded bg-greyViolet font-gfs_didot_regular text-lg text-royalBlue shadow-lg">
+        <div className="absolute right-0 top-full mt-2 w-48 rounded bg-greyViolet font-gfs_didot_regular text-royalBlue shadow-lg">
           <div className="flex flex-col space-y-2 p-4">
             <a
               href="/#about"
-              className="block rounded p-2 text-right text-xl font-bold transition duration-300 hover:bg-white hover:text-black"
+              className="text-base md:text-lg lg:text-xl block rounded p-2 text-right font-bold transition duration-300 hover:bg-darkBlue hover:text-white"
             >
               About Me
             </a>
             <a
               href="/#treatments"
-              className="block rounded p-2 text-right  text-xl font-bold transition duration-300 hover:bg-white hover:text-black"
+              className="text-base md:text-lg lg:text-xl block rounded p-2 text-right font-bold transition duration-300 hover:bg-darkBlue hover:text-white"
             >
               Treatments
             </a>
             <a
               href="/#reviews"
-              className="block rounded p-2 text-right text-xl font-bold transition duration-300 hover:bg-white hover:text-black"
+              className="text-base md:text-lg lg:text-xl block rounded p-2 text-right font-bold transition duration-300 hover:bg-darkBlue hover:text-white"
             >
               Testimonies
             </a>
             <a
               href="/#gallery"
-              className="block rounded p-2 text-right text-xl font-bold transition duration-300 hover:bg-white hover:text-black"
+              className="text-base md:text-lg lg:text-xl block rounded p-2 text-right font-bold transition duration-300 hover:bg-darkBlue hover:text-white"
             >
               My Work
             </a>
             <a
               href="/#book-now"
-              className="block rounded p-2 text-right  text-xl font-bold transition duration-300 hover:bg-white hover:text-black"
+              className="text-base md:text-lg lg:text-xl block rounded p-2 text-right font-bold transition duration-300 hover:bg-darkBlue hover:text-white"
             >
               Book Now
             </a>

@@ -20,9 +20,24 @@ module.exports = {
     },
     fontSize: {
       h1: ['1.5rem', { lineHeight: '1.25' }], // base for Mobile
+      h1_tablet: ['2rem', { lineHeight: '1.25' }], // base for Tablet
+      h1_desktop: ['2.5rem', { lineHeight: '1.25' }], // base for Small to Large Desktop
+      h1_xl: ['3rem', { lineHeight: '1.25' }], // base for Extra Large screens
+
       subtitle: ['1.25rem', { lineHeight: '1.5' }], // base for Mobile
+      subtitle_tablet: ['1.5rem', { lineHeight: '1.5' }], // base for Tablet
+      subtitle_desktop: ['1.75rem', { lineHeight: '1.5' }], // base for Small to Large Desktop
+      subtitle_xl: ['2rem', { lineHeight: '1.5' }], // base for Extra Large screens
+
       body: ['1rem', { lineHeight: '1.5' }], // base for Mobile
+      body_tablet: ['1.125rem', { lineHeight: '1.5' }], // base for Tablet
+      body_desktop: ['1.25rem', { lineHeight: '1.5' }], // base for Small to Large Desktop
+      body_xl: ['1.375rem', { lineHeight: '1.5' }], // base for Extra Large screens
+
       cta: ['1rem', { lineHeight: '1.5' }], // base for Mobile
+      cta_tablet: ['1.125rem', { lineHeight: '1.5' }], // base for Tablet
+      cta_desktop: ['1.25rem', { lineHeight: '1.5' }], // base for Small to Large Desktop
+      cta_xl: ['1.375rem', { lineHeight: '1.5' }], // base for Extra Large screens
     },
     screens: {
       sm: '480px', // Mobile to Tablet
