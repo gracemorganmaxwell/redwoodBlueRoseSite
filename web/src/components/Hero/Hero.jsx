@@ -26,13 +26,13 @@ const Hero = () => {
         className="relative flex flex-col p-10"
         style={{ paddingLeft: '40px', paddingTop: '60px' }}
       >
-        <h1 className="mb-10 font-gfs_didot_regular text-4xl font-bold leading-tight">
+        <h1 className="text-4xl mb-10 font-gfs_didot_regular font-bold leading-tight">
           Christchurch&apos;s haven for
           <br />
           personalised beauty.
         </h1>
         {/* Multi-line p tag content */}
-        <p className="mb-10 max-w-72 font-sans text-xl">
+        <p className="text-xl mb-10 max-w-72 font-sans">
           Trust in our safe, relaxing environment to make you feel amazing. Your
           journey to confidence and pampering starts here -
         </p>
