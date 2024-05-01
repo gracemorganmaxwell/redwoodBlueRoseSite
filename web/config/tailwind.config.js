@@ -19,8 +19,8 @@ module.exports = {
       gfs_didot_regular: ['GFS Didot', 'serif'],
     },
     screens: {
-      sm: '576px',
-      // => @media (min-width: 576px) { ... };
+      sm: '200px',
+      // => @media (min-width: 276px) { ... };
 
       md: '850px',
       // => @media (min-width: 800px) { ... };

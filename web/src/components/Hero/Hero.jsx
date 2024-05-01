@@ -1,5 +1,6 @@
 import React from 'react'
 
+import heroFlowerAccent from 'public/images/flowerAssent.svg'
 import heroBackgroundImage from 'public/images/heroBkgroundImage.jpeg'
 
 import CtaButton from '../CtaButton/CtaButton'
@@ -9,27 +10,32 @@ const Hero = () => {
     <div className="relative bg-darkBlue bg-center bg-no-repeat">
       {/* Background Image */}
       <div
-        className="relative mx-auto h-[534px] w-full bg-cover bg-center sm:h-[869px] sm:w-[1159px] lg:h-[1024px] lg:w-[1366px]"
+        className="relative mx-auto h-[534px] w-full bg-cover bg-center sm:h-[869px] sm:max-w-[1159px] lg:h-[1024px] lg:max-w-[1366px]"
         style={{ backgroundImage: `url(${heroBackgroundImage})` }}
       >
         {/* Overlay */}
         <div className="absolute inset-0 bg-black bg-opacity-35"></div>
 
+        {/* SVG Gold Accent */}
+        <img
+          src={heroFlowerAccent}
+          alt="Gold Flower Accent"
+          className="md:w[152.51px] absolute bottom-0 right-0 m-0 p-0 sm:h-[244px] sm:w-[102.51px] md:h-[264px] lg:h-[477px] lg:w-[202.51px] xl:h-[477px] xl:w-[202.51px]"
+        />
+
         {/* Content Container */}
         <div className="absolute inset-0 flex items-center justify-start px-4 py-16 text-left text-white sm:px-6 sm:py-24 md:px-8 lg:px-12 xl:px-16">
           <div className="ml-10 w-full max-w-3xl xl:ml-40">
             <h1 className="mb-6 font-gfs_didot_regular text-4xl font-bold leading-tight sm:mb-8 sm:text-5xl md:text-6xl lg:mb-10 xl:text-7xl">
-              Christchurch&apos;s haven
-              <br className="hidden max-xl:block sm:block md:block lg:block" />
+              Christchurch&apos;s haven{' '}
+              <br className="hidden max-xl:block sm:block md:block lg:block" />{' '}
               for personalised beauty.
             </h1>
-
             {/* Multi-line p tag content */}
             <p className="mb-8 max-w-xl font-sans text-lg sm:mb-10 sm:text-xl md:text-2xl xl:text-3xl">
               Trust in our safe, relaxing environment to make you feel amazing.
               Your journey to confidence and pampering starts here -
             </p>
-
             {/* CTA button */}
             <div className="flex text-center">
               <CtaButton />
