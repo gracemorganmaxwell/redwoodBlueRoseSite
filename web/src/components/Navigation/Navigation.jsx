@@ -5,7 +5,7 @@ import HamburgerBtn from '../HamburgerBtn/HamburgerBtn'
 const Navigation = () => {
   return (
     <nav className="sticky top-0 z-50 flex items-center justify-between bg-white p-4 shadow-md md:px-8">
-      <div className="sm:w-46 lg:w-66 xl:w-76 md:w-56">
+      <div className="xl:w-66 md:w-42 sm:w-32 lg:w-56">
         <img
           src={logo}
           alt="Blue Rose Nails and Beauty Business Logo"
@@ -17,7 +17,7 @@ const Navigation = () => {
       </div>
       <div className="hidden md:block">
         <div className="flex flex-wrap justify-center">
-          <ul className="md:text-lg lg:text-xl xl:text-2xl flex space-x-8 font-gfs_didot_regular text-royalBlue">
+          <ul className="flex space-x-8 font-gfs_didot_regular text-royalBlue md:text-lg lg:text-xl xl:text-2xl">
             <li>
               <a
                 href="/#about"
