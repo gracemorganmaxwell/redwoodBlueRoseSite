@@ -16,7 +16,7 @@ const HamburgerBtn = () => {
       <button
         onClick={toggleMenu}
         aria-label="Menu button"
-        className="flex h-12 w-12 items-center justify-center rounded-lg bg-darkBlue transition duration-300 hover:bg-white md:hidden"
+        className="flex h-12 w-12 items-center justify-center rounded-[6px] bg-darkBlue transition duration-300 hover:bg-white md:hidden"
       >
         {isOpen ? (
           <img
@@ -29,35 +29,35 @@ const HamburgerBtn = () => {
         )}
       </button>
       {isOpen && (
-        <div className="absolute right-0 top-full mt-2 w-48 rounded bg-greyViolet font-gfs_didot_regular text-royalBlue shadow-lg">
+        <div className="absolute right-0 top-full mt-2 w-48 rounded-[4px] bg-greyViolet font-gfs_didot_regular text-royalBlue shadow-lg">
           <div className="flex flex-col space-y-2 p-4">
             <a
               href="/#about"
-              className="text-base md:text-lg lg:text-xl block rounded p-2 text-right font-bold transition duration-300 hover:bg-darkBlue hover:text-white"
+              className="block rounded p-2 text-right text-base font-bold transition duration-300 hover:bg-darkBlue hover:text-white md:text-lg lg:text-xl"
             >
               About Me
             </a>
             <a
               href="/#treatments"
-              className="text-base md:text-lg lg:text-xl block rounded p-2 text-right font-bold transition duration-300 hover:bg-darkBlue hover:text-white"
+              className="block rounded p-2 text-right text-base font-bold transition duration-300 hover:bg-darkBlue hover:text-white md:text-lg lg:text-xl"
             >
               Treatments
             </a>
             <a
               href="/#reviews"
-              className="text-base md:text-lg lg:text-xl block rounded p-2 text-right font-bold transition duration-300 hover:bg-darkBlue hover:text-white"
+              className="block rounded p-2 text-right text-base font-bold transition duration-300 hover:bg-darkBlue hover:text-white md:text-lg lg:text-xl"
             >
               Testimonies
             </a>
             <a
               href="/#gallery"
-              className="text-base md:text-lg lg:text-xl block rounded p-2 text-right font-bold transition duration-300 hover:bg-darkBlue hover:text-white"
+              className="block rounded p-2 text-right text-base font-bold transition duration-300 hover:bg-darkBlue hover:text-white md:text-lg lg:text-xl"
             >
               My Work
             </a>
             <a
               href="/#book-now"
-              className="text-base md:text-lg lg:text-xl block rounded p-2 text-right font-bold transition duration-300 hover:bg-darkBlue hover:text-white"
+              className="block rounded p-2 text-right text-base font-bold transition duration-300 hover:bg-darkBlue hover:text-white md:text-lg lg:text-xl"
             >
               Book Now
             </a>
