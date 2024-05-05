@@ -1,6 +1,6 @@
 import React from 'react'
 
-import facebookIcon from '/Users/graceelizabethmorgan-maxwell/redwoodBlueRoseSite/scripts/svg-icons/facebook.svg'
+import facebookIcon from 'web/public/images/facebook.svg'
 
 const Footer = () => {
   return (
