@@ -25,13 +25,11 @@ const HomePage = () => {
       ) : (
         <>
           <Metadata title="Home" description="Home page" />
-
           <AboutRow />
           <CtaRow />
           <TreatmentRow />
           <GalleryRow />
           <TestimoniesRow />
-
           <h1>HomePage</h1>
           <p>
             Find me in <code>./web/src/pages/HomePage/HomePage.jsx</code>
