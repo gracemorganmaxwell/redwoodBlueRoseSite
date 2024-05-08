@@ -1,8 +1,8 @@
 import React from 'react'
 
-import aboutImg1 from 'web/public/images/about-us-image1.png'
-import aboutImg2 from 'web/public/images/about-us-image2.png'
-import aboutImg3 from 'web/public/images/about-us-image3.png'
+import aboutImg1 from 'web/public/images/About-Img1.png'
+import aboutImg2 from 'web/public/images/About-Img2.png'
+import aboutImg3 from 'web/public/images/About-Img3.png'
 import headingAssent from 'web/public/images/headingAssent.svg'
 
 const About = () => {
@@ -52,7 +52,7 @@ const About = () => {
               />
               {/* Box 4 */}
               <p className="text-center text-base sm:text-right sm:text-lg md:text-xl lg:text-2xl">
-                I'm Anna, with over five years of passion for transforming
+                I&apos;m Anna, with over five years of passion for transforming
                 everyday stress into moments of beauty and relaxation.
               </p>
             </div>
