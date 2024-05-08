@@ -27,11 +27,11 @@ const About = () => {
             className="lg:w-100 mx-auto mb-6 h-auto w-auto sm:w-60 md:w-80"
           />
           {/* About content */}
-          <div className="mt-8 flex flex-col gap-4">
+          <div className="mt-8 flex flex-col sm:gap-2 md:gap-4 lg:gap-6 xl:gap-8">
             {/* Row 1 */}
             <div className="flex flex-row items-center justify-between gap-4">
               {/* Box 1 */}
-              <p className="text-center text-base sm:text-left sm:text-lg md:text-xl lg:text-2xl">
+              <p className="sm:text text-center text-base sm:text-left md:text-xl lg:text-2xl">
                 Welcome to Blue Rose Nails and Beauty, where your journey to
                 serenity and elegance begins.
               </p>
@@ -43,23 +43,23 @@ const About = () => {
               />
             </div>
             {/* Row 2 */}
-            <div className="flex flex-row items-center justify-between gap-4">
+            <div className="flex flex-row items-center gap-4 sm:gap-2">
               {/* Box 3 */}
               <img
                 src={aboutImg1}
                 alt="Anna, a close up of her face, smiling at the camera."
-                className="h-[157.24px] w-[272.32px] sm:h-[157.24px] sm:w-[272.32px] md:h-[208.34px] md:w-[360.81px] lg:h-[597.74px] lg:w-[345.14px]"
+                className="h-[232.4px] w-[150px] sm:h-[232.4px] sm:w-[150px] md:h-[302.57px] md:w-[200px] lg:h-[519.55px] lg:w-[300px]"
               />
               {/* Box 4 */}
-              <p className="text-center text-base sm:text-right sm:text-lg md:text-xl lg:text-2xl">
+              <p className="text-center text-base sm:mr-2 sm:text-right md:text-xl lg:text-2xl">
                 I&apos;m Anna, with over five years of passion for transforming
                 everyday stress into moments of beauty and relaxation.
               </p>
             </div>
             {/* Row 3 */}
-            <div className="flex flex-row items-center justify-between gap-4">
+            <div className="flex flex-row items-center gap-4 sm:gap-2">
               {/* Box 5 */}
-              <p className="text-center text-base sm:text-left sm:text-lg md:text-xl lg:text-2xl">
+              <p className="text-center text-base sm:text-left md:text-xl lg:text-2xl">
                 Dive into a personalized pampering experience in our tranquil
                 haven, designed to rejuvenate your spirit and enhance your
                 natural beauty.
@@ -68,7 +68,7 @@ const About = () => {
               <img
                 src={aboutImg3}
                 alt="A reflection in a mirror of a client getting their eyebrows done on a massage table."
-                className="h-[161.33px] w-[188.48px] sm:h-[161.11px] sm:w-[188.48px] md:h-[229.11px] md:w-[196.11px] lg:h-[451.96px] lg:w-[386.86px]"
+                className="h-[153px] w-[161px]  sm:h-[153px] sm:w-[161px] md:h-[229.11px] md:w-[196.11px] lg:h-[451.96px] lg:w-[386.86px]"
               />
             </div>
           </div>
