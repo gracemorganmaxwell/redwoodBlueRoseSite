@@ -1,17 +1,17 @@
 import React from 'react'
 
 import facebookIcon from 'web/public/images/facebook.svg'
-
+import instgramIcon from 'web/public/images/instagram.svg'
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-t from-[#202020] to-[#303c50] py-8">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <footer className="flex flex-col bg-gradient-to-t from-[#202020] to-[#303c50] px-4 py-4">
+      <div className="max-w-7xl px-4 sm:px-4 md:px-4 lg:px-8">
         {/* Business Name */}
         <h2 className="mb-4 text-center text-xl font-bold text-greyViolet">
           Blue Rose Nails and Beauty Therapy
         </h2>
         {/* Copyright */}
-        <p className="mb-6 text-center text-lg font-bold text-darkerGreyViolet">
+        <p className="font-regular mb-4 text-center text-lg text-darkerGreyViolet">
           Copyright 2024
         </p>
         {/* Line Separator */}
@@ -20,21 +20,40 @@ const Footer = () => {
         </div>
         {/* Contact Section */}
         <div className="mb-6">
-          <div className="flex flex-col items-center sm:flex-row sm:justify-center">
-            <div className="mb-4 text-left sm:mb-0 sm:mr-8">
-              <h3 className="mb-2 text-xl font-bold text-blueGrey">Contact:</h3>
-              <p className="text-xl text-blueGrey">
+          <div className="flex items-center sm:flex-col sm:justify-center">
+            <div>
+              <h3 className="text-lg font-bold text-blueGrey">Contact:</h3>
+              <p className="text-lg text-blueGrey">
                 bluerosenailsandbeauty@gmail.com
               </p>
             </div>
-            <div>
-              <a href="/#" target="_blank" rel="noopener noreferrer">
-                <img
-                  src={facebookIcon}
-                  alt="Facebook Icon"
-                  className="h-8 w-8"
-                />
-              </a>
+            {/* Social Media Buttons */}
+            <div className=" flex flex-row">
+              <div>
+                <a
+                  href="https://www.facebook.com/profile.php?id=61554185572939"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <img
+                    src={facebookIcon}
+                    alt="Facebook Icon"
+                    className=" m-2 h-16 w-16 p-2 sm:h-16 sm:w-16 md:h-24 md:w-24 lg:h-32 lg:w-32"
+                  />
+                </a>
+              </div>
+              <div>
+                <a
+                  href="/https://www.instagram.com/bluerose_nailsandbeauty/"
+                  target="_blank"
+                >
+                  <img
+                    src={instgramIcon}
+                    alt="Instgram Icon"
+                    className="m-2 h-16 w-16 rounded-[20px] p-2 sm:h-16 sm:w-16 md:h-24 md:w-24 lg:h-32 lg:w-32"
+                  />
+                </a>
+              </div>
             </div>
           </div>
         </div>
