@@ -1,6 +1,6 @@
 import React from 'react'
 
-import facebookIcon from 'web/public/images/facebook.svg'
+import facebookIcon from 'web/public/images/facebook.svg?color=black'
 import instgramIcon from 'web/public/images/instagram.svg'
 const Footer = () => {
   return (
@@ -11,7 +11,7 @@ const Footer = () => {
           Blue Rose Nails and Beauty Therapy
         </h2>
         {/* Copyright */}
-        <p className="font-regular mb-4 text-center text-lg text-darkerGreyViolet">
+        <p className="font-regular mb-4 text-center text-lg text-blueGrey">
           Copyright 2024
         </p>
         {/* Line Separator */}
@@ -44,8 +44,9 @@ const Footer = () => {
               </div>
               <div>
                 <a
-                  href="/https://www.instagram.com/bluerose_nailsandbeauty/"
+                  href="https://www.instagram.com/bluerose_nailsandbeauty/"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <img
                     src={instgramIcon}
@@ -62,10 +63,10 @@ const Footer = () => {
           <div className="w-4/5 border-t border-white"></div>
         </div>
         {/* Two Columns */}
-        <div className="mb-8 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:px-20">
+        <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:px-6">
           {/* Pages Column */}
           <div className="mx-auto max-w-xs text-left">
-            <h3 className="mb-4 text-xl font-bold text-blueGrey">Pages:</h3>
+            <h3 className="mb-2 text-xl font-bold text-blueGrey">Pages:</h3>
             <ul className="text-lg text-blueGrey">
               <li className="mb-2">
                 <a href="/about-me" className="hover:text-white">
@@ -79,7 +80,7 @@ const Footer = () => {
               </li>
               <li className="mb-2">
                 <a href="/treatments" className="hover:text-white">
-                  Nail and Beauty Treatments I Offer
+                  Treatments I Offer
                 </a>
               </li>
               <li className="mb-2">
@@ -99,49 +100,46 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-          {/* Note Column */}
-          <div className="mx-auto max-w-xs text-center">
-            <h3 className="mb-4 text-xl font-bold text-blueGrey">Note:</h3>
-            <p className="mb-4 text-lg text-blueGrey">
-              Exact address given upon appointment.
-            </p>
+          <div>
             {/* Location */}
-            <h3 className="mb-4 text-xl font-bold text-blueGrey">Location:</h3>
-            <p className="text-lg text-blueGrey">Suburban, Wigram</p>
+            <h3 className="text-left text-xl font-bold text-blueGrey">
+              Location:
+            </h3>
+            <p className="mb-0 text-lg text-blueGrey">Arvo crescent, Wigram</p>
             <p className="text-lg text-blueGrey">Christchurch</p>
             <p className="text-lg text-blueGrey">New Zealand</p>
           </div>
         </div>
-        {/* Line Separator */}
-        <div className="mb-6 flex justify-center">
-          <div className="w-4/5 border-t border-white"></div>
-        </div>
-        {/* Subscribe Section */}
-        <div className="mb-8 text-center">
-          <h3 className="mb-2 text-xl font-bold text-blueGrey">Subscribe:</h3>
-          <p className="mb-4 text-lg text-blueGrey">
-            Get access to subscriber exclusive deals
-          </p>
-          <div className="flex justify-center">
-            <input
-              type="email"
-              placeholder="Email"
-              className="mr-2 rounded-lg border border-white bg-transparent px-4 py-2 text-white focus:outline-none"
-            />
-            <button className="rounded-lg bg-white px-4 py-2 text-lg font-bold text-darkBlue hover:bg-greyViolet">
-              Subscribe
-            </button>
-          </div>
-        </div>
-        {/* Line Separator */}
-        <div className="mb-6 flex justify-center">
-          <div className="w-4/5 border-t border-white"></div>
-        </div>
-        {/* Made with Love */}
-        <p className="text-center text-lg text-blueGrey">
-          Made with 💛 by Gracie
-        </p>
       </div>
+      {/* Line Separator */}
+      <div className="mb-6 flex justify-center">
+        <div className="w-4/5 border-t border-white"></div>
+      </div>
+      {/* Subscribe Section */}
+      <div className="mb-8 text-center">
+        <h3 className="mb-2 text-xl font-bold text-blueGrey">Subscribe:</h3>
+        <p className="mb-4 text-lg text-blueGrey">
+          Get access to subscriber exclusive deals
+        </p>
+        <div className="flex justify-center">
+          <input
+            type="email"
+            placeholder="Email"
+            className="mr-2 rounded-lg border border-white bg-transparent px-4 py-2 text-white focus:outline-none"
+          />
+          <button className="rounded-lg bg-white px-4 py-2 text-lg font-bold text-darkBlue hover:bg-greyViolet">
+            Subscribe
+          </button>
+        </div>
+      </div>
+      {/* Line Separator */}
+      <div className="mb-6 flex justify-center">
+        <div className="w-4/5 border-t border-white"></div>
+      </div>
+      {/* Made with Love */}
+      <p className="text-center text-lg text-blueGrey">
+        Made with 💛 by Gracie
+      </p>
     </footer>
   )
 }
