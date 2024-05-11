@@ -53,17 +53,17 @@ const TreatmentRow = () => {
           <img
             src={headingAssent}
             alt="Heading Assent"
-            className="mx-auto mb-4 h-auto w-32 sm:mb-6 sm:w-40 md:mb-8 md:w-48"
+            className="mx-auto max-w-4xl rounded-[12px] bg-white p-2 sm:max-w-[1159px]"
           />
           {/* Title */}
-          <h1 className="mb-4 text-center font-gfs_didot_regular text-4xl font-bold leading-tight sm:mb-6 sm:text-5xl md:mb-8 md:text-6xl">
+          <h1 className="text-center font-gfs_didot_regular text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
             My Treatments
           </h1>
           {/* Heading Assent SVG */}
           <img
             src={headingAssent}
             alt="Heading Assent"
-            className="mx-auto mb-8 mt-4 h-auto sm:mt-6 sm:w-40 md:mt-8 md:w-48"
+            className="mx-auto max-w-4xl rounded-[12px] bg-white p-2 sm:max-w-[1159px] sm:p-6 md:p-8 lg:max-w-[1366px] lg:p-12"
           />
           {/* Treatment content */}
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
