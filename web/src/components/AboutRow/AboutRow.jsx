@@ -1,8 +1,8 @@
 import React from 'react'
 
-import aboutImg1 from 'web/public/images/about-us-image1.png'
-import aboutImg2 from 'web/public/images/about-us-image2.png'
-import aboutImg3 from 'web/public/images/about-us-image3.png'
+import aboutImg1 from 'web/public/images/About-Img1.png'
+import aboutImg2 from 'web/public/images/About-Img2.png'
+import aboutImg3 from 'web/public/images/About-Img3.png'
 import headingAssent from 'web/public/images/headingAssent.svg'
 
 const About = () => {
@@ -13,17 +13,16 @@ const About = () => {
           {/* Heading Assent SVG */}
           <img
             src={headingAssent}
-            alt="Heading Assent"
+            alt=""
             className="lg:w-100 mx-auto mb-6 h-auto w-auto sm:w-60 md:w-80"
           />
           {/* Title */}
           <h1 className="mb-4 text-center font-gfs_didot_regular text-4xl font-bold leading-tight sm:mb-6 sm:text-5xl md:mb-8 md:text-6xl">
-            About Us
+            My Story
           </h1>
-          {/* Heading Assent SVG */}
           <img
             src={headingAssent}
-            alt="Heading Assent"
+            alt=""
             className="lg:w-100 mx-auto mb-6 h-auto w-auto sm:w-60 md:w-80"
           />
           {/* About content */}
