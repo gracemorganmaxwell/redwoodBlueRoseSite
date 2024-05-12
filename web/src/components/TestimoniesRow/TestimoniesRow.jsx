@@ -10,20 +10,18 @@ const TestimoniesRow = () => {
           {/* Heading Assent SVG */}
           <img
             src={headingAssent}
-            alt="Heading Assent"
-            className="mx-auto mb-4 h-auto w-32 sm:mb-6 sm:w-40 md:mb-8 md:w-48"
+            alt=""
+            className="lg:w-100 mx-auto mb-6 h-auto w-auto sm:w-60 md:w-80"
           />
-
           {/* Title */}
-          <h1 className="mb-4 text-center font-gfs_didot_regular text-4xl font-bold leading-tight sm:mb-6 sm:text-5xl md:mb-8 md:text-6xl">
-            Reviews & Testimonies
+          <h1 className="text-center font-gfs_didot_regular text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
+            Testimonies
           </h1>
-
           {/* Heading Assent SVG */}
           <img
             src={headingAssent}
-            alt="Heading Assent"
-            className="mx-auto mt-4 h-auto w-32 sm:mt-6 sm:w-40 md:mt-8 md:w-48"
+            alt=""
+            className="lg:w-100 mx-auto mb-6 mt-6 h-auto w-auto sm:w-60 md:w-80"
           />
         </div>
       </div>
