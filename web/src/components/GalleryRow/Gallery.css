@@ -1,4 +1,3 @@
-/* Gallery.css */
 .gallery {
   display: flex;
   justify-content: center;
@@ -9,7 +8,7 @@
 .gallery-container {
   position: relative;
   width: 100%;
-  max-width: 800px;
+  max-width: 1400px;
   padding: 20px;
   background-color: white;
   border-radius: 8px;
@@ -19,7 +18,29 @@
 .gallery-image {
   width: 100%;
   height: auto;
+  max-width: 200px;
+  max-height: 200px;
   border-radius: 8px;
+  margin: 0 auto;
+}
+
+.gallery-progress {
+  margin-top: 10px;
+}
+
+.progress-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc;
+  border: 1px solid #314063;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.progress-dot.active {
+  background-color: #314063;
 }
 
 .gallery-controls {
@@ -35,33 +56,20 @@
 }
 
 .gallery-control-button {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 2px solid #333;
+  background-color: #314063;
+  border: none;
   border-radius: 50%;
   width: 50px;
   height: 50px;
   font-size: 24px;
-  color: #333;
+  color: #fff;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .gallery-control-button:hover {
-  background-color: rgba(255, 255, 255, 1);
-}
-
-.gallery-image-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: #333;
-}
-
-.gallery-image-index {
-  margin-bottom: 5px;
+  background-color: #445c8e;
 }
 
 @media (max-width: 850px) {

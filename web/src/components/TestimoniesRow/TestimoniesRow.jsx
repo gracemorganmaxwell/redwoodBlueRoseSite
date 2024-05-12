@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 
+import clientPhoto1 from 'web/public/images/CharlotteReviewer.png'
+import clientPhoto2 from 'web/public/images/HazelReviewer.png'
 import headingAssent from 'web/public/images/headingAssent.svg'
+import clientPhoto3 from 'web/public/images/ReviewerTerri.png'
+
 import './TestimoniesRow.css'
 
 const TestimoniesRow = () => {
@@ -9,17 +13,22 @@ const TestimoniesRow = () => {
   const testimonies = [
     {
       quote:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod, nulla sit amet aliquam lacinia, nisl nisl aliquam nisl, nec aliquam nisl nisl sit amet nisl.',
-      clientName: 'John Doe',
-      clientPhoto: 'path/to/john-doe-photo.jpg',
+        '"...Anna from Blue Rose Nails & Beauty. She has been doing my eyebrows and lashes for years and they are absolutely perfect every time! She spends the extra time to make sure my lashes have the best lift possible and maps out my brows to get the perfect shape. Anna\u2019s passion for what she does is second to none and she always goes above and beyond to make me feel special. She\u2019s also just such a lovely, positive and caring person and I always look forward to our catch ups and walking out feeling pampered \u{1F497}\u{1F497}\u{1F497}"',
+      clientName: 'Charlotte Turner',
+      clientPhoto: clientPhoto1,
     },
     {
       quote:
-        'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      clientName: 'Jane Smith',
-      clientPhoto: 'path/to/jane-smith-photo.jpg',
+        '"Absolutely loved my visit at blue rose nails and beauty today! Anna is so professional and kind. I\u2019m new to getting eyelash/eyebrow tint and she talked me through every step of the way. Anna is so amazing at tinting. I also got a face and scalp massage which was so blissful! Can\u2019t recommend Anna enough!! thank you so much hun! \u{1F60D}\u{1F60D}"',
+      clientName: 'Hazel Mathieson',
+      clientPhoto: clientPhoto2,
     },
-    // Add more testimony objects as needed
+    {
+      quote:
+        '"Anna is incredible at what she does... my eyebrows and lashes have never looked as amazing as they have after she was done with them. She is so talented at what she does and so kind aswell. Highly recommend"',
+      clientName: 'Terri Carlson',
+      clientPhoto: clientPhoto3,
+    },
   ]
 
   const previousTestimony = () => {
@@ -67,6 +76,7 @@ const TestimoniesRow = () => {
             <div className="testimonies-container">
               <div className="testimony-card">
                 <div className="testimony-quote">
+                  <p className="testimony-subheading">I highly recommend...</p>
                   <p className="testimony-text">
                     {testimonies[currentTestimonyIndex].quote}
                   </p>
