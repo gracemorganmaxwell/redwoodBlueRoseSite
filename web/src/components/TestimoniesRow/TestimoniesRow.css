@@ -1,0 +1,73 @@
+/* Testimonies.css */
+.testimonies {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.testimonies-container {
+  max-width: 800px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.testimony-quote {
+  margin-bottom: 20px;
+}
+
+.testimony-text {
+  font-size: 18px;
+  font-style: italic;
+  color: #333;
+}
+
+.testimony-client {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.client-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.client-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.testimonies-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimony-control-button {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid #333;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin: 0 10px;
+}
+
+.testimony-control-button:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.testimony-index {
+  font-size: 14px;
+  color: #333;
+}
