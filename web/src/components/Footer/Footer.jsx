@@ -42,8 +42,11 @@ const Footer = () => {
   }
 
   return (
-    <footer className="flex flex-col bg-gradient-to-t from-[#202020] to-[#303c50] px-4 py-4">
-      <div className="max-w-7xl px-4 sm:px-4 md:px-4 lg:px-8">
+    <footer
+      className="flex flex-col bg-gradient-to-t from-[#202020] to-[#303c50] px-4 py-4"
+      style={{ justifyContent: 'center' }}
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-4 md:px-4 lg:px-8">
         {/* Business Name */}
         <h2 className="mb-4 text-center text-xl font-bold text-greyViolet">
           Blue Rose Nails and Beauty Therapy
