@@ -13,9 +13,8 @@ const CtaRow = () => {
           <img
             src={leftFlowerAssent}
             alt="Flower Illustration"
-            className="ml-[-10px] w-32 sm:mb-0 sm:w-48 md:w-64 lg:w-80"
+            className="ml-[-10px] w-20 sm:w-24 md:w-32 lg:w-80"
           />
-
           {/* CTA Button */}
           <div className="m-auto block p-0">
             <CtaButton />
