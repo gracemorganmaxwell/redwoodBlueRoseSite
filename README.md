@@ -120,3 +120,7 @@ The best way to learn Redwood is by going through the comprehensive [tutorial](h
 
 - Stay updated: read [Forum announcements](https://community.redwoodjs.com/c/announcements/5), follow us on [Twitter](https://twitter.com/redwoodjs), and subscribe to the [newsletter](https://redwoodjs.com/newsletter)
 - [Learn how to contribute](https://redwoodjs.com/docs/contributing)
+
+### Acknowledgements
+
+For the Subscribe functionality in the footer and the pop-message functionality I took inspiration from an article by Sam Greenspan here: "https://www.gmass.co/blog/emails-web-form-google-sheets/" who uses Levi Nunnink solution here: "https://github.com/levinunnink/html-form-to-google-sheet"
