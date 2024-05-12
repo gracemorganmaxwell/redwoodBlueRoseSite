@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 
 import facebookIcon from 'web/public/images/facebook.svg'
 import instagramIcon from 'web/public/images/instagram.svg'
-
-import PopupMessage from '../PopMessage/PopMessage'
+import PopupMessage from 'web/src/components/PopMessage/PopMessage.jsx'
 
 const Footer = () => {
   const [name, setName] = useState('')
@@ -167,7 +166,7 @@ const Footer = () => {
               <gmp-map
                 center="-43.54652404785156,172.53944396972656"
                 zoom="14"
-                map-id="e0a21147fceceb8a"
+                map-id={process.env.GOOGLE_MAP_API_KEY}
                 style={{
                   height: '200px',
                   width: '256px',
@@ -230,6 +229,10 @@ const Footer = () => {
           </form>
         </div>
         {showPopup && <PopupMessage message={message} onClose={closePopup} />}
+        {/* Line Separator */}
+        <div className="my-6 mt-2 flex justify-center">
+          <div className="w-4/5 border-t border-white"></div>
+        </div>
         {/* Made with Love */}
         <p className="text-center text-lg text-blueGrey">
           Made with 💛 by Gracie
