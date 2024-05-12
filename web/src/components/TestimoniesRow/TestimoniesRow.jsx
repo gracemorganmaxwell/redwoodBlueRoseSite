@@ -2,7 +2,7 @@ import React from 'react'
 
 import headingAssent from 'web/public/images/headingAssent.svg'
 
-const TreatmentRow = () => {
+const TestimoniesRow = () => {
   return (
     <div className="bg-darkBlue py-16 sm:py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -31,4 +31,4 @@ const TreatmentRow = () => {
   )
 }
 
-export default TreatmentRow
+export default TestimoniesRow
