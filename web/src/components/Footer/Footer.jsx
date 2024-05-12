@@ -161,24 +161,6 @@ const Footer = () => {
                 <p className="text-lg text-blueGrey">New Zealand</p>
               </div>
             </div>
-            {/* Google Map */}
-            <div className="h-48 w-64 rounded border border-solid border-darkBlue">
-              <gmp-map
-                center="-43.54652404785156,172.53944396972656"
-                zoom="14"
-                map-id={process.env.GOOGLE_MAP_API_KEY}
-                style={{
-                  height: '200px',
-                  width: '256px',
-                  borderRadius: '1rem',
-                }}
-              >
-                <gmp-advanced-marker
-                  position="-43.54652404785156,172.53944396972656"
-                  title="My location"
-                ></gmp-advanced-marker>
-              </gmp-map>
-            </div>
           </div>
         </div>
         {/* Line Separator */}
