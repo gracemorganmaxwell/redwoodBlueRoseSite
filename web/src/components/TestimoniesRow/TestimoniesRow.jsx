@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import headingAssent from 'web/public/images/headingAssent.svg'
-import './Testimonies.css'
+import './TestimoniesRow.css'
 
 const TestimoniesRow = () => {
   const [currentTestimonyIndex, setCurrentTestimonyIndex] = useState(0)
@@ -64,7 +64,6 @@ const TestimoniesRow = () => {
           />
           {/* Testimony Carousel */}
           <div className="testimonies">
-            <h2 className="testimonies-heading">Client Testimonies</h2>
             <div className="testimonies-container">
               <div className="testimony-card">
                 <div className="testimony-quote">
