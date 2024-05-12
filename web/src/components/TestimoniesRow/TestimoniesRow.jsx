@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import headingAssent from 'web/public/images/headingAssent.svg'
+import './Testimonies.css'
 
 const TestimoniesRow = () => {
   const [currentTestimonyIndex, setCurrentTestimonyIndex] = useState(0)
@@ -33,6 +34,14 @@ const TestimoniesRow = () => {
     )
   }
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'ArrowLeft') {
+      previousTestimony()
+    } else if (event.key === 'ArrowRight') {
+      nextTestimony()
+    }
+  }
+
   return (
     <div className="bg-darkBlue py-16 sm:py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -55,35 +64,57 @@ const TestimoniesRow = () => {
           />
           {/* Testimony Carousel */}
           <div className="testimonies">
+            <h2 className="testimonies-heading">Client Testimonies</h2>
             <div className="testimonies-container">
-              <div className="testimony-quote">
-                <p className="testimony-text">
-                  {testimonies[currentTestimonyIndex].quote}
-                </p>
-              </div>
-              <div className="testimony-client">
-                <img
-                  src={testimonies[currentTestimonyIndex].clientPhoto}
-                  alt={testimonies[currentTestimonyIndex].clientName}
-                  className="client-photo"
-                />
-                <p className="client-name">
-                  {testimonies[currentTestimonyIndex].clientName}
-                </p>
+              <div className="testimony-card">
+                <div className="testimony-quote">
+                  <p className="testimony-text">
+                    {testimonies[currentTestimonyIndex].quote}
+                  </p>
+                </div>
+                <div className="testimony-client">
+                  <img
+                    src={testimonies[currentTestimonyIndex].clientPhoto}
+                    alt={testimonies[currentTestimonyIndex].clientName}
+                    className="client-photo"
+                  />
+                  <p className="client-name">
+                    {testimonies[currentTestimonyIndex].clientName}
+                  </p>
+                </div>
               </div>
               <div className="testimonies-controls">
                 <button
                   className="testimony-control-button"
                   onClick={previousTestimony}
+                  onKeyDown={handleKeyPress}
+                  tabIndex="0"
                 >
                   &lt;
                 </button>
-                <span className="testimony-index">
-                  {currentTestimonyIndex + 1} / {testimonies.length}
-                </span>
+                <div className="testimony-progress">
+                  {testimonies.map((_, index) => (
+                    <button
+                      key={index}
+                      className={`progress-dot ${
+                        index === currentTestimonyIndex ? 'active' : ''
+                      }`}
+                      onClick={() => setCurrentTestimonyIndex(index)}
+                      onKeyDown={(event) => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                          setCurrentTestimonyIndex(index)
+                        }
+                      }}
+                      tabIndex="0"
+                      aria-label={`Go to testimony ${index + 1}`}
+                    ></button>
+                  ))}
+                </div>
                 <button
                   className="testimony-control-button"
                   onClick={nextTestimony}
+                  onKeyDown={handleKeyPress}
+                  tabIndex="0"
                 >
                   &gt;
                 </button>
