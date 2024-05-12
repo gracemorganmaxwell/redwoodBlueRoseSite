@@ -23,7 +23,7 @@ const Navigation = () => {
                 href="/#about"
                 className="rounded-md px-2 py-1 transition duration-300 hover:bg-darkBlue hover:font-bold hover:text-white"
               >
-                About Me
+                My Story
               </a>
             </li>
             <li>

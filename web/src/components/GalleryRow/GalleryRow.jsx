@@ -37,7 +37,7 @@ const GalleryRow = () => {
           />
           {/* Title */}
           <h1 className="text-center font-gfs_didot_regular text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
-            My Gallery
+            My Work
           </h1>
           {/* Heading Assent SVG */}
           <img
