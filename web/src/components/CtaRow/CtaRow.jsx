@@ -12,9 +12,10 @@ const CtaRow = () => {
           {/* Flower Assent SVG */}
           <img
             src={leftFlowerAssent}
-            alt="Flower Illustration"
-            className="ml-[-10px] w-20 sm:w-24 md:w-32 lg:w-80"
+            alt="Gold Flower Accent"
+            className="absolute bottom-0 right-0 m-0 ml-10 w-[6vh] p-0 sm:w-[8vh] md:w-[10vh] lg:w-[12vh] xl:w-[14vh]"
           />
+
           {/* CTA Button */}
           <div className="m-auto block p-0">
             <CtaButton />

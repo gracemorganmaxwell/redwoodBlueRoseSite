@@ -1,4 +1,3 @@
-// TreatmentRow.js
 import React from 'react'
 
 import Brows from 'web/public/images/Brows.png'
@@ -47,8 +46,14 @@ const TreatmentRow = () => {
 
   return (
     <div className="bg-darkBlue py-16 sm:py-24 md:py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-4xl rounded-[12px] bg-white p-8 sm:p-12 md:p-16 lg:mx-auto lg:max-w-[1366px]">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="relative mx-auto max-w-4xl rounded-[12px] bg-white p-8 sm:p-12 md:p-16 lg:mx-auto lg:max-w-[1366px]">
+          {/* Gold accent positioned more to the left and within screen view
+          <img
+            src={goldAssentFullComponentCorner}
+            alt="Gold Accent"
+            className="absolute -top-3 -right-2 h-10 w-26"
+          />ß
           {/* Heading Assent SVG */}
           <img
             src={headingAssent}

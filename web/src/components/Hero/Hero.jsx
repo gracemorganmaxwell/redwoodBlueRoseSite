@@ -20,7 +20,7 @@ const Hero = () => {
         <img
           src={heroFlowerAccent}
           alt="Gold Flower Accent"
-          className="md:w[152.51px] absolute bottom-0 right-0 m-0 p-0 sm:h-[244px] sm:w-[102.51px] md:h-[264px] lg:h-[477px] lg:w-[202.51px] xl:h-[477px] xl:w-[202.51px]"
+          className="absolute bottom-0 right-0 m-0 w-[6vh] p-0 sm:w-[8vh] md:w-[10vh] lg:w-[12vh] xl:w-[14vh]"
         />
 
         {/* Content Container */}
@@ -31,12 +31,10 @@ const Hero = () => {
               <br className="hidden max-xl:block sm:block md:block lg:block" />{' '}
               for personalised beauty.
             </h1>
-            {/* Multi-line p tag content */}
             <p className="mb-8 max-w-xl font-sans text-lg sm:mb-10 sm:text-xl md:text-2xl xl:text-3xl">
               Trust in our safe, relaxing environment to make you feel amazing.
               Your journey to confidence and pampering starts here -
             </p>
-            {/* CTA button */}
             <div className="flex text-center">
               <CtaButton />
             </div>

@@ -13,23 +13,20 @@ module.exports = {
         darkerGreyViolet: '#7E7F9A',
         black: '#000000',
       },
+      backgroundImage: {
+        'blue-blackbkgroundgradient':
+          'linear-gradient(90deg, #000000, #314063)',
+      },
     },
     fontFamily: {
       sans: ['Inter', 'sans-serif'],
       gfs_didot_regular: ['GFS Didot', 'serif'],
     },
     screens: {
-      sm: '200px',
-      // => @media (min-width: 276px) { ... };
-
-      md: '850px',
-      // => @media (min-width: 800px) { ... };
-
-      lg: '992px',
-      // => @media (min-width: 992px) { ... };
-
-      xl: '1200px',
-      // => @media (min-width: 1200px) { ... };
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
     },
   },
   plugins: [],

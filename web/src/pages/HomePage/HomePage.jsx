@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { Link, routes } from '@redwoodjs/router'
+import { Link } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 
 import AboutRow from 'src/components/AboutRow/AboutRow'
@@ -12,12 +12,16 @@ import TreatmentRow from 'src/components/TreatmentsRow/TreatmentsRow'
 
 const HomePage = () => {
   const [isLoading, setIsLoading] = useState(true)
+
   useEffect(() => {
     // Simulating a loading delay for demonstration
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setIsLoading(false)
     }, 2000)
+
+    return () => clearTimeout(timer) // Cleanup the timer
   }, [])
+
   return (
     <div className="overflow-x-hidden">
       {isLoading ? (
@@ -26,10 +30,11 @@ const HomePage = () => {
         <>
           <Metadata title="Home" description="Home page" />
           <AboutRow />
+          <GalleryRow />
           <CtaRow />
           <TreatmentRow />
-          <GalleryRow />
           <TestimoniesRow />
+
           <h1>HomePage</h1>
           <p>
             Find me in <code>./web/src/pages/HomePage/HomePage.jsx</code>
