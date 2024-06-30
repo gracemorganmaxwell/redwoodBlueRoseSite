@@ -16,7 +16,7 @@ const HamburgerBtn = () => {
       <button
         onClick={toggleMenu}
         aria-label="Menu button"
-        className="flex h-12 w-12 items-center justify-center rounded-[6px] bg-darkBlue transition duration-300 hover:bg-white md:hidden"
+        className="flex h-12 w-12 items-center justify-center rounded-[6px] bg-darkBlue transition duration-300 hover:bg-white"
       >
         {isOpen ? (
           <img
