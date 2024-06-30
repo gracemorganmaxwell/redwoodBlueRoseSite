@@ -8,5 +8,9 @@
   "[prisma]": {
     "editor.formatOnSave": true
   },
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "cSpell.words": [
+    "datamodels",
+    "gifter"
+  ]
 }

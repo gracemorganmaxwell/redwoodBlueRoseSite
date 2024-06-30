@@ -159,9 +159,11 @@ const Footer = () => {
                 Location:
               </h3>
               <div className="text-center">
-                <p className="text-lg text-blueGrey">Arvo crescent, Wigram</p>
+                <p className="text-lg text-blueGrey">Avro crescent, Wigram</p>
                 <p className="text-lg text-blueGrey">Christchurch</p>
                 <p className="text-lg text-blueGrey">New Zealand</p>
+                <br />
+                <p className="text-lg text-greyViolet">By appointment only.</p>
               </div>
             </div>
           </div>

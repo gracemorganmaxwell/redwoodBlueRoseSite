@@ -10,12 +10,17 @@
 import { Set, Router, Route } from '@redwoodjs/router'
 
 import BaseLayout from './layouts/BaseLayout/BaseLayout'
+import FormLayout from './layouts/FormsLayout/FormsLayout'
 
 const Routes = () => {
   return (
     <Router>
+      <Set wrap={FormLayout}>
+        <Route path="/gift-card-requests" page={GiftRequestPage} name="Gift Requests" />
+        <Route path="/contact" page={ContactPage} name="Contact Us" />
+      </Set>
       <Set wrap={BaseLayout}>
-        <Route path="/home" page={HomePage} name="home" />
+        <Route path="/" page={HomePage} name="home" />
         <Route notfound page={NotFoundPage} />
       </Set>
     </Router>

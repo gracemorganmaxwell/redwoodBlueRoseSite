@@ -17,8 +17,26 @@ generator client {
 // Define your own datamodels here and run `yarn redwood prisma migrate dev`
 // to create migrations for them and apply to your dev DB.
 // TODO: Please remove the following example:
-model UserExample {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+model Contact {
+  id      Int     @id @default(autoincrement())
+  name    String
+  email   String
+  message String
+  createdAt DateTime @default(now())
 }
+
+model GiftCardRequest {
+  id                Int      @id @default(autoincrement())
+  recipientName     String
+  giftType          String   // "Monetary" or "Service"
+  deliveryMethod    String   // "E_Gift" or "Physical"
+  email             String?  // Optional, required for e-gift cards
+  address           String?  // Optional, required for physical gift cards
+  message           String
+  gifterName        String
+  gifterEmail       String
+  note              String   @default("Payment is via online banking and I'll email you to discuss")
+  createdAt         DateTime @default(now())
+}
+
+
