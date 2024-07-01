@@ -15,7 +15,7 @@ module.exports = {
       },
       backgroundImage: {
         'blue-blackbkgroundgradient':
-          'linear-gradient(90deg, #000000, #314063)',
+          'linear-gradient(90deg, #222147 , #535F93)',
       },
     },
     fontFamily: {

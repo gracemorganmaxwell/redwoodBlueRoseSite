@@ -5,7 +5,7 @@ import aboutImg2 from 'web/public/images/About-Img2.png'
 import aboutImg3 from 'web/public/images/About-Img3.png'
 import headingAssent from 'web/public/images/headingAssent.svg'
 
-const About = () => {
+const AboutRow = () => {
   return (
     <div className="bg-darkBlue py-16 sm:py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -77,4 +77,4 @@ const About = () => {
   )
 }
 
-export default About
+export default AboutRow

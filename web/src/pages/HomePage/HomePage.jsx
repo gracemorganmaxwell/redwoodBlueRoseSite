@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react'
 
-import { Link, routes } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
 
-import AboutRow from 'src/components/AboutRow/AboutRow'
-import CtaRow from 'src/components/CtaRow/CtaRow'
-import GalleryRow from 'src/components/GalleryRow/GalleryRow'
 import LoadingScreen from 'src/components/LoadingSpinner/LoadingSpinner'
-import TestimoniesRow from 'src/components/TestimoniesRow/TestimoniesRow.stories'
-import TreatmentRow from 'src/components/TreatmentsRow/TreatmentsRow'
+import NavigationComponent from 'src/components/Navigation/Navigation'
 
 const HomePage = () => {
   const [isLoading, setIsLoading] = useState(true)
@@ -27,23 +22,10 @@ const HomePage = () => {
       {isLoading ? (
         <LoadingScreen />
       ) : (
-        <>
+        <div>
           <Metadata title="Home" description="Home page" />
-          <AboutRow />
-          <GalleryRow />
-          <CtaRow />
-          <TreatmentRow />
-          <TestimoniesRow />
-
-          <h1>HomePage</h1>
-          <p>
-            Find me in <code>./web/src/pages/HomePage/HomePage.jsx</code>
-          </p>
-          <p>
-            My default route is named <code>home</code>, link to me with `
-            <Link to={routes.home()}>Home</Link>`
-          </p>
-        </>
+          <NavigationComponent />
+        </div>
       )}
     </div>
   )

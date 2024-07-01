@@ -5,7 +5,7 @@ import heroBackgroundImage from 'public/images/heroBkgroundImage.jpeg'
 
 import CtaButton from '../CtaButton/CtaButton'
 
-const Hero = () => {
+const HeroComponent = () => {
   return (
     <div className="relative bg-darkBlue bg-center bg-no-repeat">
       {/* Background Image */}
@@ -45,4 +45,4 @@ const Hero = () => {
   )
 }
 
-export default Hero
+export default HeroComponent

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 
-import { Metadata } from '@redwoodjs/web'
+import Metadata from '@redwoodjs/web'
 
+import FooterComponent from 'src/components/Footer/Footer'
 import GiftCardRequestComponent from 'src/components/GiftCardRequestComponent/GiftCardRequestComponent'
-import { LoadingScreen } from 'src/components/LoadingSpinner/LoadingSpinner'
+import LoadingScreen from 'src/components/LoadingSpinner/LoadingSpinner'
+import NavigationComponent from 'src/components/Navigation/Navigation'
 
 const GiftRequestPage = () => {
   const [isLoading, setIsLoading] = useState(true)
@@ -24,7 +26,10 @@ const GiftRequestPage = () => {
       ) : (
         <>
           <Metadata title="Gift Request" description="Gift Requests" />
+          <NavigationComponent />
+          <h1>Gift Card Requests Page</h1>
           <GiftCardRequestComponent />
+          <FooterComponent />
         </>
       )}
     </div>
