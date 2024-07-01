@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import { Metadata } from '@redwoodjs/web'
 
+import AboutRow from 'src/components/AboutRow/AboutRow'
 import LoadingScreen from 'src/components/LoadingSpinner/LoadingSpinner'
 import NavigationComponent from 'src/components/Navigation/Navigation'
 
@@ -18,13 +19,17 @@ const HomePage = () => {
   }, [])
 
   return (
-    <div className="overflow-x-hidden">
+    <div>
       {isLoading ? (
         <LoadingScreen />
       ) : (
         <div>
           <Metadata title="Home" description="Home page" />
           <NavigationComponent />
+          <main>
+            <AboutRow />
+            <AboutRow />
+          </main>
         </div>
       )}
     </div>

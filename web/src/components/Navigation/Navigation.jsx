@@ -4,7 +4,7 @@ import HamburgerBtn from 'src/components/HamburgerBtn/HamburgerBtn'
 
 const NavigationComponent = () => {
   return (
-    <nav className="sticky top-0 z-50 flex items-center justify-between bg-white p-4 shadow-xl md:px-8">
+    <nav className="sticky top-0 z-50 bg-white p-4 shadow-xl">
       <div className="flex w-full items-center justify-between">
         <div className="order-2 flex flex-grow justify-center">
           <img
