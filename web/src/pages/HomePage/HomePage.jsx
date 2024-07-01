@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { Metadata } from '@redwoodjs/web'
 
 import AboutRow from 'src/components/AboutRow/AboutRow'
+import GalleryRow from 'src/components/GalleryRow/GalleryRow'
 import LoadingScreen from 'src/components/LoadingSpinner/LoadingSpinner'
 import NavigationComponent from 'src/components/Navigation/Navigation'
 
@@ -28,7 +29,7 @@ const HomePage = () => {
           <NavigationComponent />
           <main>
             <AboutRow />
-            <AboutRow />
+            <GalleryRow />
           </main>
         </div>
       )}
