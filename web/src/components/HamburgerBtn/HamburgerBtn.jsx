@@ -30,30 +30,29 @@ const HamburgerBtn = () => {
         )}
       </button>
       {isOpen && (
-        <div className="absolute right-0 top-full mt-2 w-48 rounded-[4px] bg-greyViolet font-gfs_didot_regular text-royalBlue shadow-lg">
-          <div className="flex flex-col space-y-2 p-4">
+        <div className="absolute right-0 top-full mt-2 w-48 rounded-[4px] bg-white shadow-lg">
+          <div className="flex flex-col space-y-2 p-4 font-gfs_didot_regular text-darkBlue">
+            <a
+              href="/#contact"
+              className="block rounded p-2 text-right text-base font-bold transition duration-300 hover:text-black hover:underline md:text-lg lg:text-xl"
+            >
+              Contact
+            </a>
             <a
               href="/#treatments"
-              className="block rounded p-2 text-right text-base font-bold transition duration-300 hover:bg-darkBlue hover:text-white md:text-lg lg:text-xl"
+              className="block rounded p-2 text-right text-base font-bold transition duration-300 hover:text-black hover:underline md:text-lg lg:text-xl"
             >
               Treatments
             </a>
             <a
               href="/#gallery"
-              className="block rounded p-2 text-right text-base font-bold transition duration-300 hover:bg-darkBlue hover:text-white md:text-lg lg:text-xl"
+              className="block rounded p-2 text-right text-base font-bold transition duration-300 hover:text-black hover:underline md:text-lg lg:text-xl"
             >
               Gallery
             </a>
             <a
-              href="/#contact"
-              className="block rounded p-2 text-right text-base font-bold transition duration-300 hover:bg-darkBlue hover:text-white md:text-lg lg:text-xl"
-            >
-              Contact
-            </a>
-
-            <a
               href="/#book-now"
-              className="block rounded p-2 text-right text-base font-bold transition duration-300 hover:bg-darkBlue hover:text-white md:text-lg lg:text-xl"
+              className="block rounded p-2 text-right text-base font-bold transition duration-300 hover:text-black hover:underline md:text-lg lg:text-xl"
             >
               Book Now
             </a>
