@@ -5,6 +5,7 @@ import { Metadata } from '@redwoodjs/web'
 import AboutRow from 'src/components/AboutRow/AboutRow'
 import CtaRow from 'src/components/CtaRow/CtaRow'
 import GalleryRow from 'src/components/GalleryRow/GalleryRow'
+import HeroComponent from 'src/components/Hero/Hero'
 import LoadingScreen from 'src/components/LoadingSpinner/LoadingSpinner'
 import NavigationComponent from 'src/components/Navigation/Navigation'
 import TreatmentRow from 'src/components/TreatmentsRow/TreatmentsRow'
@@ -30,6 +31,7 @@ const HomePage = () => {
           <Metadata title="Home" description="Home page" />
           <NavigationComponent />
           <main>
+            <HeroComponent />
             <AboutRow />
             <GalleryRow />
             <TreatmentRow />

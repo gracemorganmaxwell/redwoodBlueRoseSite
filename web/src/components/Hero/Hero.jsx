@@ -33,7 +33,7 @@ const HeroComponent = () => {
             </h1>
             <p className="mb-8 max-w-xl font-sans text-lg sm:mb-10 sm:text-xl md:text-2xl xl:text-3xl">
               Trust in our safe, relaxing environment to make you feel amazing.
-              Your journey to confidence and pampering starts here -
+              Your journey to confidence and pampering starts here.
             </p>
             <div className="flex text-center">
               <CtaButton />
