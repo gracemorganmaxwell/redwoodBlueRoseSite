@@ -23,10 +23,10 @@ module.exports = {
       gfs_didot_regular: ['GFS Didot', 'serif'],
     },
     screens: {
-      sm: '640px',
-      md: '768px',
-      lg: '1024px',
-      xl: '1280px',
+      sm: '640px', // Mobile Screen Size
+      md: '768px', // Tablet Screen Size
+      lg: '1024px', // Desktop Screen Size
+      xl: '1280px', // Large Desktop Screen Size
     },
   },
   plugins: [],

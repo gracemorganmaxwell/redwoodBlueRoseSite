@@ -17,7 +17,9 @@ const HamburgerBtn = () => {
       <button
         onClick={toggleMenu}
         aria-label="Menu button"
-        className="flex h-12 w-12 items-center justify-center rounded-[6px] bg-white shadow-lg transition duration-300 hover:bg-darkBlue focus:outline-none focus:ring-2 focus:ring-royalBlue focus:ring-opacity-50"
+        className={`flex h-12 w-12 items-center justify-center rounded-[6px] shadow-lg transition duration-300 focus:outline-none focus:ring-2 focus:ring-royalBlue focus:ring-opacity-50 ${
+          isOpen ? 'border-2 border-darkBlue bg-white' : 'bg-darkBlue'
+        }`}
       >
         {isOpen ? (
           <img
@@ -34,25 +36,25 @@ const HamburgerBtn = () => {
           <div className="flex flex-col space-y-2 p-4 font-gfs_didot_regular text-darkBlue">
             <a
               href="/#contact"
-              className="block rounded p-2 text-right text-base font-bold transition duration-300 hover:text-black hover:underline md:text-lg lg:text-xl"
+              className="block rounded p-2 text-right text-base font-bold transition duration-300 hover:bg-royalBlue hover:text-white md:text-lg lg:text-xl"
             >
               Contact
             </a>
             <a
               href="/#treatments"
-              className="block rounded p-2 text-right text-base font-bold transition duration-300 hover:text-black hover:underline md:text-lg lg:text-xl"
+              className="block rounded p-2 text-right text-base font-bold transition duration-300 hover:bg-royalBlue hover:text-white md:text-lg lg:text-xl"
             >
               Treatments
             </a>
             <a
               href="/#gallery"
-              className="block rounded p-2 text-right text-base font-bold transition duration-300 hover:text-black hover:underline md:text-lg lg:text-xl"
+              className="block rounded p-2 text-right text-base font-bold transition duration-300 hover:bg-royalBlue hover:text-white md:text-lg lg:text-xl"
             >
               Gallery
             </a>
             <a
               href="/#book-now"
-              className="block rounded p-2 text-right text-base font-bold transition duration-300 hover:text-black hover:underline md:text-lg lg:text-xl"
+              className="block rounded p-2 text-right text-base font-bold transition duration-300 hover:bg-royalBlue hover:text-white md:text-lg lg:text-xl"
             >
               Book Now
             </a>

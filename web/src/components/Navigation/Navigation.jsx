@@ -19,25 +19,25 @@ const NavigationComponent = () => {
         <div className="order-1 hidden space-x-4 font-gfs_didot_regular text-darkBlue md:order-3 md:flex">
           <a
             href="/#treatments"
-            className="text-base font-bold transition duration-300 hover:text-black hover:underline md:text-lg lg:text-xl"
+            className="px-2 py-1 text-base font-bold transition duration-300 hover:rounded hover:bg-royalBlue hover:text-white md:text-lg lg:text-xl"
           >
             Treatments
           </a>
           <a
             href="/#gallery"
-            className="text-base font-bold transition duration-300 hover:text-black hover:underline md:text-lg lg:text-xl"
+            className="px-2 py-1 text-base font-bold transition duration-300 hover:rounded hover:bg-royalBlue hover:text-white md:text-lg lg:text-xl"
           >
             Gallery
           </a>
           <a
             href="/#contact"
-            className="text-base font-bold transition duration-300 hover:text-black hover:underline md:text-lg lg:text-xl"
+            className="px-2 py-1 text-base font-bold transition duration-300 hover:rounded hover:bg-royalBlue hover:text-white md:text-lg lg:text-xl"
           >
             Contact
           </a>
           <a
             href="/#book-now"
-            className="text-base font-bold transition duration-300 hover:text-black hover:underline md:text-lg lg:text-xl"
+            className="px-2 py-1 text-base font-bold transition duration-300 hover:rounded hover:bg-royalBlue hover:text-white md:text-lg lg:text-xl"
           >
             Book Now
           </a>

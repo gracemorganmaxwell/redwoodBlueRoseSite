@@ -59,7 +59,7 @@ const AboutRow = () => {
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-2">
               {/* Box 5 */}
               <p className="text-center text-base sm:py-3 sm:text-left md:text-xl lg:text-2xl">
-                Dive into a personalized pampering experience in our tranquil
+                Dive into a personalised pampering experience in our tranquil
                 haven, designed to rejuvenate your spirit and enhance your
                 natural beauty.
               </p>
