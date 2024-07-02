@@ -7,8 +7,25 @@ import Lightbox from './Lightbox'
 
 describe('Lightbox', () => {
   it('renders successfully', () => {
+    const mockImages = [
+      { src: 'image1.jpg', alt: 'Image 1' },
+      { src: 'image2.jpg', alt: 'Image 2' },
+    ]
+    const mockCurrentImageIndex = 0
+    const mockPreviousImage = jest.fn()
+    const mockNextImage = jest.fn()
+    const mockCloseLightbox = jest.fn()
+
     expect(() => {
-      render(<Lightbox />)
+      render(
+        <Lightbox
+          images={mockImages}
+          currentImageIndex={mockCurrentImageIndex}
+          previousImage={mockPreviousImage}
+          nextImage={mockNextImage}
+          closeLightbox={mockCloseLightbox}
+        />
+      )
     }).not.toThrow()
   })
 })

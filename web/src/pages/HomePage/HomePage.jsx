@@ -3,9 +3,11 @@ import React, { useState, useEffect } from 'react'
 import { Metadata } from '@redwoodjs/web'
 
 import AboutRow from 'src/components/AboutRow/AboutRow'
+import CtaRow from 'src/components/CtaRow/CtaRow'
 import GalleryRow from 'src/components/GalleryRow/GalleryRow'
 import LoadingScreen from 'src/components/LoadingSpinner/LoadingSpinner'
 import NavigationComponent from 'src/components/Navigation/Navigation'
+import TreatmentRow from 'src/components/TreatmentsRow/TreatmentsRow'
 
 const HomePage = () => {
   const [isLoading, setIsLoading] = useState(true)
@@ -30,6 +32,8 @@ const HomePage = () => {
           <main>
             <AboutRow />
             <GalleryRow />
+            <TreatmentRow />
+            <CtaRow />
           </main>
         </div>
       )}
