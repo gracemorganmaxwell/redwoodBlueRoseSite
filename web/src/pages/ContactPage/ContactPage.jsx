@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import { React, useState, useEffect } from 'react'
 
-import Metadata from '@redwoodjs/web'
+import { Metadata } from '@redwoodjs/web'
 
 import ContactFormComponent from 'src/components/ContactFormComponent/ContactFormComponent'
 import FooterComponent from 'src/components/Footer/Footer'
