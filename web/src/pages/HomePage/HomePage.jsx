@@ -4,10 +4,12 @@ import { Metadata } from '@redwoodjs/web'
 
 import AboutRow from 'src/components/AboutRow/AboutRow'
 import CtaRow from 'src/components/CtaRow/CtaRow'
+import Footer from 'src/components/Footer/Footer'
 import GalleryRow from 'src/components/GalleryRow/GalleryRow'
 import HeroComponent from 'src/components/Hero/Hero'
 import LoadingScreen from 'src/components/LoadingSpinner/LoadingSpinner'
 import NavigationComponent from 'src/components/Navigation/Navigation'
+import TestimoniesRow from 'src/components/TestimoniesRow/TestimoniesRow'
 import TreatmentRow from 'src/components/TreatmentsRow/TreatmentsRow'
 
 const HomePage = () => {
@@ -36,6 +38,8 @@ const HomePage = () => {
             <GalleryRow />
             <TreatmentRow />
             <CtaRow />
+            <TestimoniesRow />
+            <Footer />
           </main>
         </div>
       )}
