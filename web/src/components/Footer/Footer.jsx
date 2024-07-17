@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import facebookIcon from 'web/public/images/facebook.svg'
-import instagramIcon from 'web/public/images/instagram.svg'
+import instagramIcon from 'web/public/images/InstagramIcon.png'
 import PopupMessage from 'web/src/components/PopMessage/PopMessage.jsx'
 
 const Footer = () => {
@@ -43,7 +43,7 @@ const Footer = () => {
 
   return (
     <footer
-      className="flex flex-col bg-gradient-to-t from-[#202020] to-[#303c50] px-4 py-4"
+      className="flex flex-col overflow-hidden bg-gradient-to-t from-[#202020] to-[#303c50] px-4 py-4"
       style={{ justifyContent: 'center' }}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-4 md:px-4 lg:px-8">
@@ -72,37 +72,33 @@ const Footer = () => {
             </div>
           </div>
           {/* Social Media Buttons */}
-          <div className="mt-4 flex justify-center">
-            <div>
-              <a
-                href="https://www.facebook.com/profile.php?id=61554185572939"
-                target="_blank"
-                rel="noreferrer"
-                className="h-18 w-18 m-2 block rounded-lg bg-royalBlue p-2 shadow-md transition duration-200 hover:border-2 hover:border-darkBlue hover:bg-white"
-                style={{ boxSizing: 'border-box' }}
-              >
-                <img
-                  src={facebookIcon}
-                  alt="Facebook Icon"
-                  className="h-full w-full object-contain"
-                />
-              </a>
-            </div>
-            <div>
-              <a
-                href="https://www.instagram.com/bluerose_nailsandbeauty/"
-                target="_blank"
-                rel="noreferrer"
-                className="h-18 w-18 m-2 block rounded-lg bg-royalBlue p-2 shadow-md transition duration-200 hover:border-2 hover:border-darkBlue hover:bg-white"
-                style={{ boxSizing: 'border-box' }}
-              >
-                <img
-                  src={instagramIcon}
-                  alt="Instagram Icon"
-                  className="h-full w-full object-contain"
-                />
-              </a>
-            </div>
+          <div className="mt-4 flex justify-center space-x-4">
+            <a
+              href="https://www.facebook.com/profile.php?id=61554185572939"
+              target="_blank"
+              rel="noreferrer"
+              className="h-18 w-18 m-2 block rounded-lg bg-white p-2 shadow-lg transition-transform duration-200 hover:scale-110"
+              style={{ boxSizing: 'border-box' }}
+            >
+              <img
+                src={facebookIcon}
+                alt="Facebook Icon"
+                className="h-[40px] w-[40px] object-contain"
+              />
+            </a>
+            <a
+              href="https://www.instagram.com/bluerose_nailsandbeauty/"
+              target="_blank"
+              rel="noreferrer"
+              className="h-18 w-18 m-2 block rounded-lg bg-white p-2 shadow-lg transition-transform duration-200 hover:scale-110"
+              style={{ boxSizing: 'border-box' }}
+            >
+              <img
+                src={instagramIcon}
+                alt="Instagram Icon"
+                className="h-[40px] w-[40px] object-contain"
+              />
+            </a>
           </div>
           {/* Line Separator */}
           <div className="mb-6 flex justify-center">
@@ -119,7 +115,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li className="mb-2">
-                  <a href="/giftrequest" className="hover:text-white">
+                  <a href="/GiftRequestPage" className="hover:text-white">
                     Gift Cards
                   </a>
                 </li>
@@ -129,7 +125,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="/contact" className="hover:text-white">
+                  <a href="/ContactForm" className="hover:text-white">
                     Contact Us
                   </a>
                 </li>

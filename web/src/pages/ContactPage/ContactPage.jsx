@@ -21,25 +21,32 @@ const ContactPage = () => {
 
   return (
     <main>
-      <div className="w-full overflow-x-hidden bg-darkBlue">
+      <div className="w-full bg-darkBlue">
         {isLoading ? (
           <LoadingScreen />
         ) : (
           <>
             <Metadata title="contact" description="contact" />
-            <NavigationComponent />
-            <div className="mx-auto max-w-2xl text-center">
-              <p className="my-4 font-sans text-white">
-                Thank you for reaching out to us! We value your feedback and
-                inquiries. Please fill out the contact form below with your
-                name, email, and message. Our team is committed to providing
-                timely responses and will get back to you as soon as possible.
-                Whether you have questions, comments, or need assistance, we are
-                here to help. Your input is important to us, and we strive to
-                ensure a positive experience with our services.
+            <NavigationComponent className="shadow-xl" />
+            <br />
+            <div className="mx-auto max-w-2xl text-center shadow-xl">
+              <p className="my-4 text-center font-sans text-xl font-bold leading-5 text-white">
+                Welcome to our contact page!
               </p>
-              <div className="shadow-xl">
+              <p className="my-4 text-center font-sans italic text-white">
+                We value your feedback and inquiries.
+              </p>
+              <p className="my-4 font-sans text-white">
+                Fill out the contact form below with your name, email, and
+                message.
+              </p>
+              <p className="my-4 font-sans text-white">
+                We will respond in a timely fashion and get back to you as soon
+                as possible.
+              </p>
+              <div>
                 <ContactFormComponent />
+                <br />
               </div>
             </div>
             <FooterComponent />

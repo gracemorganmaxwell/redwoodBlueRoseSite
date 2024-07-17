@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import { gql } from '@apollo/client'
+import goldAssentBtnCorner from 'web/public/images/goldAssentBtnCorner.svg'
 
 import {
   Form,
@@ -42,7 +43,9 @@ const GiftCardRequestComponent = () => {
     <>
       <br />
       <main className="mx-auto max-w-md space-y-4 rounded-xl bg-white p-6 shadow-md">
-        <h2 className="mb-4 text-xl font-semibold">Gift Card Request Form</h2>
+        <h2 className="mb-4 text-left text-xl font-semibold">
+          Gift Card Request Form
+        </h2>
         <Form onSubmit={onSubmit} error={error} className="space-y-4">
           <FormError
             error={error}
@@ -50,7 +53,10 @@ const GiftCardRequestComponent = () => {
           />
 
           <div>
-            <Label name="recipientName" className="mt-4 block text-gray-700">
+            <Label
+              name="recipientName"
+              className="block text-left text-gray-700"
+            >
               Recipient&apos;s Name
             </Label>
             <TextField
@@ -63,7 +69,7 @@ const GiftCardRequestComponent = () => {
           </div>
 
           <div>
-            <Label name="giftType" className="mt-4 block text-gray-700">
+            <Label name="giftType" className="block text-left text-gray-700">
               Gift Card Type
             </Label>
             <SelectField
@@ -80,7 +86,10 @@ const GiftCardRequestComponent = () => {
           </div>
 
           <div>
-            <Label name="deliveryMethod" className="mt-4 block text-gray-700">
+            <Label
+              name="deliveryMethod"
+              className="block text-left text-gray-700"
+            >
               Delivery Method
             </Label>
             <SelectField
@@ -105,7 +114,7 @@ const GiftCardRequestComponent = () => {
 
           {deliveryMethod === 'E_Gift' && (
             <div>
-              <Label name="email" className="mt-4 block text-gray-700">
+              <Label name="email" className="block text-left text-gray-700">
                 Recipient&apos;s Email
               </Label>
               <TextField
@@ -120,7 +129,7 @@ const GiftCardRequestComponent = () => {
 
           {deliveryMethod === 'Physical' && (
             <div>
-              <Label name="address" className="mt-4 block text-gray-700">
+              <Label name="address" className="block text-left text-gray-700">
                 Recipient&rsquo;s Address
               </Label>
               <TextField
@@ -135,7 +144,10 @@ const GiftCardRequestComponent = () => {
 
           {deliveryMethod === 'BuyersPhysical' && (
             <div>
-              <Label name="gifterAddress" className="mt-4 block text-gray-700">
+              <Label
+                name="gifterAddress"
+                className="block text-left text-gray-700"
+              >
                 Purchaser&rsquo;s Address
               </Label>
               <TextField
@@ -149,7 +161,7 @@ const GiftCardRequestComponent = () => {
           )}
 
           <div>
-            <Label name="message" className="mt-4 block text-gray-700">
+            <Label name="message" className="block text-left text-gray-700">
               Message
             </Label>
             <TextAreaField
@@ -162,7 +174,7 @@ const GiftCardRequestComponent = () => {
           </div>
 
           <div>
-            <Label name="gifterName" className="mt-4 block text-gray-700">
+            <Label name="gifterName" className="block text-left text-gray-700">
               Purchased By
             </Label>
             <TextField
@@ -175,7 +187,7 @@ const GiftCardRequestComponent = () => {
           </div>
 
           <div>
-            <Label name="gifterEmail" className="mt-4 block text-gray-700">
+            <Label name="gifterEmail" className="block text-left text-gray-700">
               Purchaser&apos;s Email
             </Label>
             <TextField
@@ -193,13 +205,30 @@ const GiftCardRequestComponent = () => {
             <FieldError name="gifterEmail" className="text-red-600" />
           </div>
 
-          <Submit
-            disabled={loading}
-            className="mt-4 rounded bg-blue-500 p-2 text-white"
-          >
-            Submit Request
-          </Submit>
+          <div className="relative flex justify-center">
+            <img
+              src={goldAssentBtnCorner}
+              alt="Gold accent top"
+              className="absolute bottom-0 left-0 mb-[50px] ml-[-6px] md:mb-[48px] md:ml-[-48px]"
+            />
+            <Submit
+              disabled={loading}
+              className="relative z-10 mt-4 flex rounded-[16px] border border-darkBlue bg-white px-6 py-3 text-lg font-semibold text-darkBlue shadow-xl transition-colors duration-300 hover:bg-darkBlue hover:text-white"
+            >
+              Submit Request
+            </Submit>
+            <img
+              src={goldAssentBtnCorner}
+              alt="Gold accent bottom"
+              className="absolute bottom-0 left-0 mb-[-16px] ml-[-36px] w-[70%] rotate-180"
+            />
+          </div>
         </Form>
+        <br />
+        {/* Line Separator */}
+        <div className="mb-6 flex justify-center">
+          <div className="w-[90vw] border-t border-darkBlue"></div>
+        </div>
         <p className="mt-4 text-gray-500">
           We respect your privacy. Your information is safe and will never be
           shared.

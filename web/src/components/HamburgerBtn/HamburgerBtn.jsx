@@ -35,7 +35,7 @@ const HamburgerBtn = () => {
         <div className="absolute right-0 top-full mt-2 w-48 rounded-[4px] bg-white shadow-lg">
           <div className="flex flex-col space-y-2 p-4 font-gfs_didot_regular text-darkBlue">
             <a
-              href="/#contact"
+              href="/#ContactForm"
               className="block rounded p-2 text-right text-base font-bold transition duration-300 hover:bg-royalBlue hover:text-white md:text-lg lg:text-xl"
             >
               Contact
