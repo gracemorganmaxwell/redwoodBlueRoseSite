@@ -1,19 +1,18 @@
-import { Link, routes } from '@redwoodjs/router'
 import { Metadata } from '@redwoodjs/web'
+
+import Footer from 'src/components/Footer/Footer'
+import NavigationComponent from 'src/components/Navigation/Navigation'
+import PoliciesComponent from 'src/components/PoliciesComponent/PoliciesComponent'
 
 const PoliciesPage = () => {
   return (
     <>
       <Metadata title="Policies" description="Policies page" />
-
-      <h1>PoliciesPage</h1>
-      <p>
-        Find me in <code>./web/src/pages/PoliciesPage/PoliciesPage.jsx</code>
-      </p>
-      <p>
-        My default route is named <code>policies</code>, link to me with `
-        <Link to={routes.policies()}>Policies</Link>`
-      </p>
+      <NavigationComponent />
+      <div className="flex min-h-screen justify-center bg-darkBlue py-8">
+        <PoliciesComponent />
+      </div>
+      <Footer />
     </>
   )
 }
