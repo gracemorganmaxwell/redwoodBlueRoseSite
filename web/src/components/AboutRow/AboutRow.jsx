@@ -3,28 +3,14 @@ import React from 'react'
 import aboutImg1 from 'web/public/images/About-Img1.png'
 import aboutImg2 from 'web/public/images/About-Img2.png'
 import aboutImg3 from 'web/public/images/About-Img3.png'
-import headingAssent from 'web/public/images/headingAssent.svg'
+
 
 const AboutRow = () => {
   return (
     <div className="bg-darkBlue py-16 sm:py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl rounded-[12px] bg-white p-4 sm:max-w-[1159px] sm:p-6 md:p-8 lg:max-w-[1366px] lg:p-12">
-          {/* Heading Assent SVG */}
-          <img
-            src={headingAssent}
-            alt=""
-            className="lg:w-100 mx-auto mb-6 h-auto w-auto sm:w-60 md:w-80"
-          />
-          {/* Title */}
-          <h1 className="mb-4 text-center font-gfs_didot_regular text-4xl font-bold leading-tight sm:mb-6 sm:text-5xl md:mb-8 md:text-6xl">
-            My Story
-          </h1>
-          <img
-            src={headingAssent}
-            alt=""
-            className="lg:w-100 mx-auto mb-6 h-auto w-auto sm:w-60 md:w-80"
-          />
+          <headingAssent label="My Story" />
           {/* About content */}
           <div className="mt-8 flex flex-col sm:gap-2 md:gap-4 lg:gap-6 xl:gap-8">
             {/* Row 1 */}

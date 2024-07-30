@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { Metadata } from '@redwoodjs/web'
 
@@ -29,7 +29,7 @@ const ContactPage = () => {
             <Metadata title="contact" description="contact" />
             <NavigationComponent className="shadow-xl" />
             <br />
-            <div className="mx-auto max-w-2xl text-center shadow-xl">
+            <div className="mx-auto max-w-2xl p-6 text-center shadow-xl sm:px-6 lg:px-8">
               <p className="my-4 text-center font-sans text-xl font-bold leading-5 text-white">
                 Welcome to our contact page!
               </p>
@@ -44,7 +44,7 @@ const ContactPage = () => {
                 We will respond in a timely fashion and get back to you as soon
                 as possible.
               </p>
-              <div>
+              <div className="p-6 sm:px-6 lg:px-8">
                 <ContactFormComponent />
                 <br />
               </div>

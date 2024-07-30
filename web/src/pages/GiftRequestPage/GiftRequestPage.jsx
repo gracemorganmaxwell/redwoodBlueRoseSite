@@ -11,12 +11,11 @@ const GiftRequestPage = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    // Simulating a loading delay for demonstration
     const timer = setTimeout(() => {
       setIsLoading(false)
     }, 2000)
 
-    return () => clearTimeout(timer) // Cleanup the timer
+    return () => clearTimeout(timer)
   }, [])
 
   return (
@@ -32,8 +31,8 @@ const GiftRequestPage = () => {
             />
             <NavigationComponent className="shadow-xl" />
             <br />
-            <div className="mx-auto max-w-2xl shadow-xl">
-              <div className="px-6">
+            <div className="mx-auto max-w-2xl p-6 shadow-xl sm:px-6 lg:px-8">
+              <div className="px-4 sm:px-6 lg:px-8">
                 <p className="my-4 font-sans text-xl font-bold leading-5 text-white">
                   Welcome to our Gift Card Request page!
                 </p>
@@ -44,11 +43,6 @@ const GiftRequestPage = () => {
                 <p className="my-4 font-sans text-white">
                   Simply fill out the form below with the recipient&apos;s
                   details, your preferred gift type, and the delivery method.
-                </p>
-                <p className="my-4 font-sans text-white">
-                  Whether you choose an e-gift card or a physical gift card, we
-                  ensure a seamless and prompt process. If you have any special
-                  messages or instructions, please include them in the form.
                 </p>
                 <div className="w-full bg-darkBlue p-2">
                   <GiftCardRequestComponent />

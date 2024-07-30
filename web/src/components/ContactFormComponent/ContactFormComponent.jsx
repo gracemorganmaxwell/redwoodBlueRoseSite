@@ -1,5 +1,4 @@
-import { gql } from '@apollo/client'
-import goldAssentBtnCorner from 'web/public/images/goldAssentBtnCorner.svg'
+import React from 'react'
 
 import {
   Form,
@@ -8,9 +7,12 @@ import {
   Label,
   TextField,
   TextAreaField,
-  Submit,
 } from '@redwoodjs/forms'
-import { useMutation } from '@redwoodjs/web'
+import { gql, useMutation } from '@redwoodjs/web'
+
+import FormSubmitBtnComponent from 'src/components/FormSubmitBtnComponent/FormSubmitBtnComponent'
+import HeadingComponent from 'src/components/HeadingComponent/HeadingComponent'
+import FormBottomPrivacyCopy from 'src/components/PrivacyPolicyMessageComponent/PrivacyPolicyMessageComponent'
 
 const CREATE_CONTACT = gql`
   mutation CreateContactMutation($input: CreateContactInput!) {
@@ -21,21 +23,21 @@ const CREATE_CONTACT = gql`
 `
 
 const ContactFormComponent = () => {
-  const [create, { loading, error }] = useMutation(CREATE_CONTACT, {
+  const [createContact, { loading, error }] = useMutation(CREATE_CONTACT, {
     onCompleted: () => {
       alert('Thank you for your message!')
     },
   })
 
   const onSubmit = (data) => {
-    create({ variables: { input: data } })
+    createContact({ variables: { input: data } })
   }
 
   return (
     <>
       <br />
       <main className="mx-auto max-w-md space-y-4 rounded-xl bg-white p-6 shadow-md">
-        <h2 className="mb-4 text-left text-xl font-semibold">Contact Form</h2>
+        <HeadingComponent title="Contact Form" />
         <Form onSubmit={onSubmit} error={error} className="space-y-4">
           <FormError
             error={error}
@@ -98,25 +100,9 @@ const ContactFormComponent = () => {
             />
             <FieldError name="message" className="text-red-600" />
           </div>
-          <br />
-          <div className="relative">
-            <img
-              src={goldAssentBtnCorner}
-              alt="Gold accent top"
-              className="absolute bottom-0 left-0 mb-[48px] ml-[-48px] w-[70%]"
-            />
-            <Submit
-              disabled={loading}
-              className="relative z-10 mt-4 flex rounded-[16px] border border-darkBlue bg-white px-6 py-3 text-lg font-semibold text-darkBlue shadow-xl transition-colors duration-300 hover:bg-darkBlue hover:text-white"
-            >
-              Submit Message
-            </Submit>
-            <img
-              src={goldAssentBtnCorner}
-              alt="Gold accent bottom"
-              className="absolute bottom-0 left-0 mb-[-16px] ml-[-36px] w-[70%] rotate-180"
-            />
-          </div>
+
+          <FormSubmitBtnComponent label="Send Message" loading={loading} />
+          <FormBottomPrivacyCopy />
         </Form>
       </main>
       <br />

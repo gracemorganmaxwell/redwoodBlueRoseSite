@@ -32,8 +32,8 @@ import gallery6 from 'web/public/images/6.png'
 import gallery7 from 'web/public/images/7.png'
 import gallery8 from 'web/public/images/8.png'
 import gallery9 from 'web/public/images/9.png'
-import headingAssent from 'web/public/images/headingAssent.svg'
 
+import HeadingComponent from 'src/components/HeadingComponent/HeadingComponent'
 import Lightbox from 'src/components/Lightbox/Lightbox'
 
 const GalleryRow = () => {
@@ -104,19 +104,7 @@ const GalleryRow = () => {
     <div className="bg-darkBlue py-16 sm:py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative mx-auto max-w-4xl rounded-[12px] bg-white p-8 sm:p-12 md:p-16 lg:mx-auto lg:max-w-[1366px]">
-          <img
-            src={headingAssent}
-            alt=""
-            className="lg:w-100 mx-auto mb-6 h-auto w-auto sm:w-60 md:w-80"
-          />
-          <h1 className="text-center font-gfs_didot_regular text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
-            My Work
-          </h1>
-          <img
-            src={headingAssent}
-            alt=""
-            className="lg:w-100 mx-auto mb-6 mt-6 h-auto w-auto sm:w-60 md:w-80"
-          />
+          <HeadingComponent label="My Work" />
           <div className="flex h-full items-center justify-center">
             <div className="relative w-full max-w-[1400px] rounded-lg bg-white p-5 shadow-lg">
               <div

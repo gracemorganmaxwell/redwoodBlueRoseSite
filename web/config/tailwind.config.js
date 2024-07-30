@@ -23,6 +23,7 @@ module.exports = {
       gfs_didot_regular: ['GFS Didot', 'serif'],
     },
     screens: {
+      xs: '320px', // Extra Small Screen Size
       sm: '640px', // Mobile Screen Size
       md: '768px', // Tablet Screen Size
       lg: '1024px', // Desktop Screen Size

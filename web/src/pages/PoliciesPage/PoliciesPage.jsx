@@ -9,7 +9,7 @@ const PoliciesPage = () => {
     <>
       <Metadata title="Policies" description="Policies page" />
       <NavigationComponent />
-      <div className="flex min-h-screen justify-center bg-darkBlue py-8">
+      <div className="flex min-h-screen justify-center bg-darkBlue p-8">
         <PoliciesComponent />
       </div>
       <Footer />

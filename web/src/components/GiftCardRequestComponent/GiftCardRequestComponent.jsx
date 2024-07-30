@@ -1,8 +1,5 @@
 import React, { useState } from 'react'
 
-import { gql } from '@apollo/client'
-import goldAssentBtnCorner from 'web/public/images/goldAssentBtnCorner.svg'
-
 import {
   Form,
   FormError,
@@ -11,9 +8,13 @@ import {
   TextField,
   SelectField,
   TextAreaField,
-  Submit,
 } from '@redwoodjs/forms'
-import { useMutation } from '@redwoodjs/web'
+import { gql, useMutation } from '@redwoodjs/web'
+
+import SubmitButton from 'src/components/FormSubmitBtnComponent/FormSubmitBtnComponent'
+import HeadingComponent from 'src/components/HeadingComponent/HeadingComponent'
+import LineSeparatorComponent from 'src/components/LineSeparatorComponent/LineSeparatorComponent.jsx'
+import FormBottomPrivacyCopy from 'src/components/PrivacyPolicyMessageComponent/PrivacyPolicyMessageComponent'
 
 const CREATE_GIFT_CARD_REQUEST = gql`
   mutation CreateGiftCardRequestMutation($input: CreateGiftCardRequestInput!) {
@@ -43,9 +44,7 @@ const GiftCardRequestComponent = () => {
     <>
       <br />
       <main className="mx-auto max-w-md space-y-4 rounded-xl bg-white p-6 shadow-md">
-        <h2 className="mb-4 text-left text-xl font-semibold">
-          Gift Card Request Form
-        </h2>
+        <HeadingComponent title="Gift Card Request Form" />
         <Form onSubmit={onSubmit} error={error} className="space-y-4">
           <FormError
             error={error}
@@ -130,7 +129,7 @@ const GiftCardRequestComponent = () => {
           {deliveryMethod === 'Physical' && (
             <div>
               <Label name="address" className="block text-left text-gray-700">
-                Recipient&rsquo;s Address
+                Recipient&apos;s Address
               </Label>
               <TextField
                 name="address"
@@ -148,7 +147,7 @@ const GiftCardRequestComponent = () => {
                 name="gifterAddress"
                 className="block text-left text-gray-700"
               >
-                Purchaser&rsquo;s Address
+                Purchaser&apos;s Address
               </Label>
               <TextField
                 name="gifterAddress"
@@ -205,36 +204,12 @@ const GiftCardRequestComponent = () => {
             <FieldError name="gifterEmail" className="text-red-600" />
           </div>
 
-          <div className="relative flex justify-center">
-            <img
-              src={goldAssentBtnCorner}
-              alt="Gold accent top"
-              className="absolute bottom-0 left-0 mb-[50px] ml-[-6px] md:mb-[48px] md:ml-[-48px]"
-            />
-            <Submit
-              disabled={loading}
-              className="relative z-10 mt-4 flex rounded-[16px] border border-darkBlue bg-white px-6 py-3 text-lg font-semibold text-darkBlue shadow-xl transition-colors duration-300 hover:bg-darkBlue hover:text-white"
-            >
-              Submit Request
-            </Submit>
-            <img
-              src={goldAssentBtnCorner}
-              alt="Gold accent bottom"
-              className="absolute bottom-0 left-0 mb-[-16px] ml-[-36px] w-[70%] rotate-180"
-            />
-          </div>
+          <SubmitButton label="Request Gift Card" loading={loading} />
         </Form>
         <br />
-        {/* Line Separator */}
-        <div className="mb-6 flex justify-center">
-          <div className="w-[90vw] border-t border-darkBlue"></div>
-        </div>
-        <p className="mt-4 text-gray-500">
-          We respect your privacy. Your information is safe and will never be
-          shared.
-        </p>
+        <LineSeparatorComponent />
+        <FormBottomPrivacyCopy />
       </main>
-      <br />
     </>
   )
 }
