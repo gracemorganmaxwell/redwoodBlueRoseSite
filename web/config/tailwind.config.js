@@ -12,6 +12,7 @@ module.exports = {
         royalBlue: '#233277',
         darkerGreyViolet: '#7E7F9A',
         black: '#000000',
+        ascentBlue: '#2195e8',
       },
       backgroundImage: {
         'blue-blackbkgroundgradient':

@@ -1,6 +1,8 @@
-import logo from 'public/images/logoExtra.svg'
+import logo from 'public/images/Logo.svg'
 
 import HamburgerBtn from 'src/components/HamburgerBtn/HamburgerBtn'
+
+import CtaButton from '../CtaButton/CtaButton'
 
 const NavigationComponent = () => {
   return (
@@ -19,28 +21,23 @@ const NavigationComponent = () => {
         <div className="order-1 hidden space-x-4 font-gfs_didot_regular text-darkBlue md:order-3 md:flex">
           <a
             href="/#treatments"
-            className="px-2 py-1 text-base font-bold transition duration-300 hover:rounded hover:bg-royalBlue hover:text-white md:text-lg lg:text-xl"
+            className="rounded-[12px] border border-darkBlue px-6 py-3 font-sans text-base font-bold transition duration-300 hover:bg-darkBlue hover:text-white md:text-lg lg:text-xl"
           >
             Treatments
           </a>
           <a
             href="/#gallery"
-            className="px-2 py-1 text-base font-bold transition duration-300 hover:rounded hover:bg-royalBlue hover:text-white md:text-lg lg:text-xl"
+            className="rounded-[12px] border border-darkBlue px-6 py-3 font-sans text-base font-bold transition duration-300 hover:bg-darkBlue hover:text-white md:text-lg lg:text-xl"
           >
             Gallery
           </a>
           <a
             href="/#contact"
-            className="px-2 py-1 text-base font-bold transition duration-300 hover:rounded hover:bg-royalBlue hover:text-white md:text-lg lg:text-xl"
+            className="rounded-[12px] border border-darkBlue px-6 py-3 font-sans text-base font-bold transition duration-300 hover:bg-darkBlue hover:text-white md:text-lg lg:text-xl"
           >
             Contact
           </a>
-          <a
-            href="/#book-now"
-            className="px-2 py-1 text-base font-bold transition duration-300 hover:rounded hover:bg-royalBlue hover:text-white md:text-lg lg:text-xl"
-          >
-            Book Now
-          </a>
+          <CtaButton />
         </div>
       </div>
     </nav>

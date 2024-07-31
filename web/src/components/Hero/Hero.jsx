@@ -1,6 +1,5 @@
 import React from 'react'
 
-import heroFlowerAccent from 'public/images/flowerAssent.svg'
 import heroBackgroundImage from 'public/images/heroBkgroundImage.jpeg'
 
 import CtaButton from '../CtaButton/CtaButton'
@@ -15,13 +14,6 @@ const HeroComponent = () => {
       >
         {/* Overlay */}
         <div className="absolute inset-0 bg-black bg-opacity-35"></div>
-
-        {/* SVG Gold Accent */}
-        <img
-          src={heroFlowerAccent}
-          alt="Gold Flower Accent"
-          className="absolute bottom-0 right-0 m-0 w-[6vh] p-0 sm:w-[8vh] md:w-[10vh] lg:w-[12vh] xl:w-[14vh]"
-        />
 
         {/* Content Container */}
         <div className="absolute inset-0 flex items-center justify-start px-4 py-16 text-left text-white sm:px-6 sm:py-24 md:px-8 lg:px-12 xl:px-16">

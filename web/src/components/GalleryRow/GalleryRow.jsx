@@ -104,7 +104,7 @@ const GalleryRow = () => {
     <div className="bg-darkBlue py-16 sm:py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative mx-auto max-w-4xl rounded-[12px] bg-white p-8 sm:p-12 md:p-16 lg:mx-auto lg:max-w-[1366px]">
-          <HeadingComponent label="My Work" />
+          <HeadingComponent title="My Work" />
           <div className="flex h-full items-center justify-center">
             <div className="relative w-full max-w-[1400px] rounded-lg bg-white p-5 shadow-lg">
               <div

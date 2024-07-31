@@ -15,7 +15,7 @@ const CtaButton = () => {
         className="absolute right-0 top-0 mr-[-20px] mt-[-10px] h-auto w-auto object-cover"
       />
       <button
-        className="relative z-10 flex items-center justify-center rounded-[12px] border border-darkBlue bg-white px-6 py-3 font-semibold text-darkBlue shadow-md transition-colors duration-300 hover:bg-darkBlue hover:text-white"
+        className="relative z-10 text-base font-bold flex items-center justify-center font- font-sans rounded-[12px] border border-darkBlue bg-darkBlue px-6 py-3 font-bold text-white shadow-md transition duration-300 hover:bg-ascentBlue hover:text-white md:text-lg lg:text-xl"
         onClick={handleClick}
       >
         Book Now
