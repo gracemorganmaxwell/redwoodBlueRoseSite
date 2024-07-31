@@ -11,8 +11,10 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "cSpell.words": [
     "datamodels",
+    "dioi",
     "Gallerygridcomponent",
     "gifter",
-    "Instgramicon"
+    "Instgramicon",
+    "lazyload"
   ]
 }

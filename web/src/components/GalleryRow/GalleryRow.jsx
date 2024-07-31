@@ -1,88 +1,45 @@
 import React, { useState } from 'react'
 
-import gallery1 from 'web/public/images/1.png'
-import gallery10 from 'web/public/images/10.png'
-import gallery11 from 'web/public/images/11.png'
-import gallery12 from 'web/public/images/12.png'
-import gallery13 from 'web/public/images/13.png'
-import gallery14 from 'web/public/images/14.png'
-import gallery15 from 'web/public/images/15.png'
-import gallery16 from 'web/public/images/16.png'
-import gallery17 from 'web/public/images/17.png'
-import gallery18 from 'web/public/images/18.png'
-import gallery19 from 'web/public/images/19.png'
-import gallery2 from 'web/public/images/2.png'
-import gallery20 from 'web/public/images/20.png'
-import gallery21 from 'web/public/images/21.png'
-import gallery22 from 'web/public/images/22.png'
-import gallery23 from 'web/public/images/23.png'
-import gallery24 from 'web/public/images/24.png'
-import gallery25 from 'web/public/images/25.png'
-import gallery26 from 'web/public/images/26.png'
-import gallery27 from 'web/public/images/27.png'
-import gallery28 from 'web/public/images/28.png'
-import gallery29 from 'web/public/images/29.png'
-import gallery3 from 'web/public/images/3.png'
-import gallery30 from 'web/public/images/30.png'
-import gallery31 from 'web/public/images/31.png'
-import gallery32 from 'web/public/images/32.png'
-import gallery4 from 'web/public/images/4.png'
-import gallery5 from 'web/public/images/5.png'
-import gallery6 from 'web/public/images/6.png'
-import gallery7 from 'web/public/images/7.png'
-import gallery8 from 'web/public/images/8.png'
-import gallery9 from 'web/public/images/9.png'
+import { AdvancedImage, AdvancedVideo } from '@cloudinary/react'
+import { lazyload, responsive, placeholder } from '@cloudinary/react'
+import { Cloudinary } from '@cloudinary/url-gen'
 
 import HeadingComponent from 'src/components/HeadingComponent/HeadingComponent'
 import Lightbox from 'src/components/Lightbox/Lightbox'
 
+const cld = new Cloudinary({
+  cloud: {
+    cloudName: 'dioi9wxj7',
+  },
+})
+
 const GalleryRow = () => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const [currentMediaIndex, setCurrentMediaIndex] = useState(0)
   const [isLightboxOpen, setIsLightboxOpen] = useState(false)
-  const images = [
-    { src: gallery1, alt: 'Gallery image 1' },
-    { src: gallery2, alt: 'Gallery image 2' },
-    { src: gallery3, alt: 'Gallery image 3' },
-    { src: gallery4, alt: 'Gallery image 4' },
-    { src: gallery5, alt: 'Gallery image 5' },
-    { src: gallery6, alt: 'Gallery image 6' },
-    { src: gallery7, alt: 'Gallery image 7' },
-    { src: gallery8, alt: 'Gallery image 8' },
-    { src: gallery9, alt: 'Gallery image 9' },
-    { src: gallery10, alt: 'Gallery image 10' },
-    { src: gallery11, alt: 'Gallery image 11' },
-    { src: gallery12, alt: 'Gallery image 12' },
-    { src: gallery13, alt: 'Gallery image 13' },
-    { src: gallery14, alt: 'Gallery image 14' },
-    { src: gallery15, alt: 'Gallery image 15' },
-    { src: gallery16, alt: 'Gallery image 16' },
-    { src: gallery17, alt: 'Gallery image 17' },
-    { src: gallery18, alt: 'Gallery image 18' },
-    { src: gallery19, alt: 'Gallery image 19' },
-    { src: gallery20, alt: 'Gallery image 20' },
-    { src: gallery21, alt: 'Gallery image 21' },
-    { src: gallery22, alt: 'Gallery image 22' },
-    { src: gallery23, alt: 'Gallery image 23' },
-    { src: gallery24, alt: 'Gallery image 24' },
-    { src: gallery25, alt: 'Gallery image 25' },
-    { src: gallery26, alt: 'Gallery image 26' },
-    { src: gallery27, alt: 'Gallery image 27' },
-    { src: gallery28, alt: 'Gallery image 28' },
-    { src: gallery29, alt: 'Gallery image 29' },
-    { src: gallery30, alt: 'Gallery image 30' },
-    { src: gallery31, alt: 'Gallery image 31' },
-    { src: gallery32, alt: 'Gallery image 32' },
+
+  const galleryMedia = [
+    {
+      publicId: 'Gel_manicure_with_coloured_French_qurqfv',
+      type: 'image',
+      alt: 'Gel manicure with coloured french tips.',
+    },
+    {
+      publicId: 'Lash_lift_and_hybrid_brow_stain_zf3e33',
+      type: 'video',
+      alt: 'Lash lift and hybrid brow stain.',
+    },
+    // Add more media items
   ]
 
-  const previousImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+  const previousMedia = () => {
+    setCurrentMediaIndex((prevIndex) =>
+      prevIndex === 0 ? galleryMedia.length - 1 : prevIndex - 1
     )
   }
 
-  const nextImage = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+  const nextMedia = () => {
+    setCurrentMediaIndex((prevIndex) =>
+      prevIndex === galleryMedia.length - 1 ? 0 : prevIndex + 1
     )
   }
 
@@ -94,7 +51,7 @@ const GalleryRow = () => {
     setIsLightboxOpen(false)
   }
 
-  const handleImageKeyDown = (e) => {
+  const handleMediaKeyDown = (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       openLightbox()
     }
@@ -110,42 +67,63 @@ const GalleryRow = () => {
               <div
                 role="button"
                 onClick={openLightbox}
-                onKeyDown={handleImageKeyDown}
+                onKeyDown={handleMediaKeyDown}
                 tabIndex={0}
                 aria-label="Open Lightbox"
               >
-                <img
-                  src={images[currentImageIndex].src}
-                  alt={images[currentImageIndex].alt}
-                  className="mx-auto h-auto max-h-[200px] w-full max-w-[200px] cursor-pointer rounded-lg object-cover shadow-lg md:max-h-[300px] md:max-w-[300px] lg:max-h-[500px] lg:max-w-[500px]"
-                />
+                {galleryMedia[currentMediaIndex].type === 'image' ? (
+                  <AdvancedImage
+                    cldImg={cld.image(galleryMedia[currentMediaIndex].publicId)}
+                    plugins={[lazyload(), responsive(), placeholder()]}
+                    alt={galleryMedia[currentMediaIndex].alt}
+                    className="mx-auto h-auto max-h-[200px] w-full max-w-[200px] cursor-pointer rounded-lg object-cover shadow-lg md:max-h-[300px] md:max-w-[300px] lg:max-h-[500px] lg:max-w-[500px]"
+                  />
+                ) : (
+                  <AdvancedVideo
+                    cldVid={cld.video(galleryMedia[currentMediaIndex].publicId)}
+                    controls
+                    autoplay
+                    muted
+                    plugins={[lazyload(), responsive(), placeholder()]}
+                    className="mx-auto h-auto max-h-[200px] w-full max-w-[200px] cursor-pointer rounded-lg object-cover shadow-lg md:max-h-[300px] md:max-w-[300px] lg:max-h-[500px] lg:max-w-[500px]"
+                    aria-label="Video without audio or captions"
+                  >
+                    <track
+                      kind="captions"
+                      src=""
+                      srcLang="en"
+                      label="No captions"
+                    />
+                    Your browser does not support the video tag.
+                  </AdvancedVideo>
+                )}
               </div>
               <div className="mt-4 text-center font-gfs_didot_regular text-darkBlue sm:text-xl md:text-2xl lg:text-3xl">
-                {images[currentImageIndex].alt}
+                {galleryMedia[currentMediaIndex].alt}
               </div>
               <div className="mt-2 text-center font-gfs_didot_regular text-darkBlue sm:text-lg md:text-xl lg:text-2xl">
-                {currentImageIndex + 1}/{images.length}
+                {currentMediaIndex + 1}/{galleryMedia.length}
               </div>
               <div className="mt-4 text-center md:hidden">
                 <button
                   className="rounded bg-blue-900 px-4 py-2 font-gfs_didot_regular text-white shadow-lg transition duration-300 hover:bg-blue-700"
                   onClick={openLightbox}
                 >
-                  View Image Larger
+                  View Media Larger
                 </button>
               </div>
               <div className="absolute left-0 right-0 top-1/2 flex -translate-y-1/2 transform justify-between px-5">
                 <button
                   className="h-12 w-12 cursor-pointer rounded-full bg-blue-900 text-2xl font-bold text-white shadow-lg transition duration-300 hover:bg-blue-700"
-                  onClick={previousImage}
-                  aria-label="Previous Image"
+                  onClick={previousMedia}
+                  aria-label="Previous Media"
                 >
                   &lt;
                 </button>
                 <button
                   className="h-12 w-12 cursor-pointer rounded-full bg-blue-900 text-2xl font-bold text-white shadow-lg transition duration-300 hover:bg-blue-700"
-                  onClick={nextImage}
-                  aria-label="Next Image"
+                  onClick={nextMedia}
+                  aria-label="Next Media"
                 >
                   &gt;
                 </button>
@@ -155,11 +133,12 @@ const GalleryRow = () => {
 
           {isLightboxOpen && (
             <Lightbox
-              images={images}
-              currentImageIndex={currentImageIndex}
-              previousImage={previousImage}
-              nextImage={nextImage}
+              mediaItems={galleryMedia}
+              currentMediaIndex={currentMediaIndex}
+              previousMedia={previousMedia}
+              nextMedia={nextMedia}
               closeLightbox={closeLightbox}
+              cld={cld}
             />
           )}
         </div>

@@ -48,5 +48,5 @@
     "../.redwood/types/includes/web-*",
     "../types",
     "./types"
-  ]
+, "src/components/GalleryRow/CloudinaryUtils.jsx"  ]
 }
