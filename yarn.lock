@@ -1824,7 +1824,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cloudinary/transformation-builder-sdk@npm:^1.13.0":
+"@cloudinary/transformation-builder-sdk@npm:^1.13.0, @cloudinary/transformation-builder-sdk@npm:^1.14.0":
   version: 1.14.1
   resolution: "@cloudinary/transformation-builder-sdk@npm:1.14.1"
   dependencies:
@@ -1839,6 +1839,15 @@ __metadata:
   dependencies:
     "@cloudinary/transformation-builder-sdk": "npm:^1.13.0"
   checksum: 10c0/bfef710f7ea7b7ebd8752cf8bae4e0f860ce9f9afb970ce5c7592b45d38f4c9543ff211752678ca034c0215c9cfa5bd8230e864d3009d61a923f39db57c770e5
+  languageName: node
+  linkType: hard
+
+"@cloudinary/url-gen@npm:^1.20.0":
+  version: 1.20.0
+  resolution: "@cloudinary/url-gen@npm:1.20.0"
+  dependencies:
+    "@cloudinary/transformation-builder-sdk": "npm:^1.14.0"
+  checksum: 10c0/0c880efecd00c24f844ac1506f09ed7137aa7f9450348e4247472f705868772feec7206aaf2c4f8e1ed2c424d7fa2abf3f0ff613ce6ef2f5dd5df18408423ab1
   languageName: node
   linkType: hard
 
@@ -21398,7 +21407,7 @@ __metadata:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@cloudinary/react": "npm:^1.13.0"
-    "@cloudinary/url-gen": "npm:^1.19.0"
+    "@cloudinary/url-gen": "npm:^1.20.0"
     "@redwoodjs/cli-storybook": "npm:7.7.3"
     "@redwoodjs/core": "npm:7.7.3"
     "@redwoodjs/project-config": "npm:7.7.3"

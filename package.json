@@ -25,7 +25,7 @@
   "packageManager": "yarn@4.1.1",
   "dependencies": {
     "@cloudinary/react": "^1.13.0",
-    "@cloudinary/url-gen": "^1.19.0",
+    "@cloudinary/url-gen": "^1.20.0",
     "cloudinary-react": "^1.8.1",
     "yarn": "^1.22.22"
   }
