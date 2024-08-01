@@ -6,14 +6,10 @@ import headingAssent from 'web/public/images/headingAssent.svg'
 const SubheadingComponent = ({ title }) => {
   return (
     <div className="text-center">
-      <h2 className="mb-0 font-gfs_didot_regular text-2xl font-semibold">
+      <h2 className="mb-0 font-gfs_didot_regular font-semibold xs:text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
         {title}
       </h2>
-      <img
-        src={headingAssent}
-        alt=""
-        className="lg:w-100 mx-auto mb-4 xs:w-[70%] sm:w-60 md:w-80"
-      />
+      <img src={headingAssent} alt="" className=" mx-auto mb-4  md:w-32" />
     </div>
   )
 }

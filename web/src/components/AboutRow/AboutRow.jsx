@@ -4,7 +4,6 @@ import aboutImg1 from 'web/public/images/About-Img1.png'
 import aboutImg2 from 'web/public/images/About-Img2.png'
 import aboutImg3 from 'web/public/images/About-Img3.png'
 
-
 const AboutRow = () => {
   return (
     <div className="bg-darkBlue py-16 sm:py-24 md:py-32">
