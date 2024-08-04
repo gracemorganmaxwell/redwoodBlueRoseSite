@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { AdvancedImage, AdvancedVideo } from '@cloudinary/react'
-import { lazyload, responsive, placeholder } from '@cloudinary/react'
+import { responsive, placeholder } from '@cloudinary/react'
 import { Cloudinary } from '@cloudinary/url-gen'
 
 import HeadingComponent from 'src/components/HeadingComponent/HeadingComponent'
@@ -218,7 +218,7 @@ const GalleryRow = () => {
                 {galleryMedia[currentMediaIndex].type === 'image' ? (
                   <AdvancedImage
                     cldImg={cld.image(galleryMedia[currentMediaIndex].publicId)}
-                    plugins={[lazyload(), responsive(), placeholder()]}
+                    plugins={[responsive(), placeholder()]}
                     alt={galleryMedia[currentMediaIndex].alt}
                     className="mx-auto h-auto max-h-[200px] w-full max-w-[200px] cursor-pointer rounded-lg object-cover shadow-lg md:max-h-[300px] md:max-w-[300px] lg:max-h-[500px] lg:max-w-[500px]"
                   />
@@ -228,7 +228,7 @@ const GalleryRow = () => {
                     controls
                     autoplay
                     muted
-                    plugins={[lazyload(), responsive(), placeholder()]}
+                    plugins={[responsive(), placeholder()]}
                     className="mx-auto h-auto max-h-[200px] w-full max-w-[200px] cursor-pointer rounded-lg object-cover shadow-lg md:max-h-[300px] md:max-w-[300px] lg:max-h-[500px] lg:max-w-[500px]"
                     aria-label="Video without audio or captions"
                   >
