@@ -14,7 +14,7 @@ const NavigationComponent = () => {
           <Link to="/home">
             <img
               src={logo}
-              alt="Blue Rose Nails and Beauty Business Logo"
+              alt="Blue Rose Nails and Beauty Business Logo and link to home page"
               className="m-2"
             />
           </Link>
