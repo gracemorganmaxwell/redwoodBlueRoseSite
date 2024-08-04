@@ -4,7 +4,10 @@ import goldAssentBtnCorner from 'web/public/images/goldAssentBtnCorner.svg'
 
 const CtaButton = () => {
   const handleClick = () => {
-    window.open('/#', '_blank')
+    window.open(
+      ' https://www.fresha.com/book-now/blue-rose-nails-beauty-h5gamcsb/all-offer?pId=969545',
+      '_blank'
+    )
   }
 
   return (
