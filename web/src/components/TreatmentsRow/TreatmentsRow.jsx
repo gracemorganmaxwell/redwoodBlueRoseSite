@@ -14,7 +14,11 @@ import Card from '../Card/Card'
 
 const TreatmentRow = () => {
   const treatments = [
-    { image: Nails, label: 'Nails', href: 'https://booking-site.com/nails' },
+    {
+      image: Nails,
+      label: 'Nails',
+      href: '/stepping-stone-nails-fresha',
+    },
     { image: Brows, label: 'Brows', href: 'https://booking-site.com/brows' },
     { image: Waxing, label: 'Waxing', href: 'https://booking-site.com/waxing' },
     {
