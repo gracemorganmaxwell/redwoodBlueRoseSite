@@ -88,7 +88,7 @@ const NailTreatments = () => {
             >
               <a
                 href={treatment.href}
-                className="text-lg font-semibold text-darkBlue hover:underline"
+                className="text-center text-lg font-semibold text-darkBlue hover:underline"
               >
                 {treatment.label}
               </a>
