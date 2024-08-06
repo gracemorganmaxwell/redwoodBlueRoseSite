@@ -6,10 +6,10 @@ import CtaButton from '../CtaButton/CtaButton'
 
 const HeroComponent = () => {
   return (
-    <div className="relative bg-darkBlue bg-center bg-no-repeat">
+    <div className="relative bg-darkBlue">
       {/* Background Image */}
       <div
-        className="relative mx-auto h-[534px] w-full bg-cover bg-center sm:h-[869px] sm:max-w-[1159px] lg:h-[1024px] lg:max-w-[1366px]"
+        className="relative mx-auto h-[534px] w-full bg-cover bg-center bg-no-repeat sm:h-[869px] sm:max-w-[1159px] lg:h-[1024px] lg:max-w-[1366px]"
         style={{ backgroundImage: `url(${heroBackgroundImage})` }}
       >
         {/* Overlay */}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import emailIcon from 'web/public/images/emailIcon.png'
+import emailIcon from 'web/public/images/EmailIcon.svg'
 import facebookIcon from 'web/public/images/facebook.svg'
 import instagramIcon from 'web/public/images/InstagramIcon.png'
 
@@ -44,16 +44,6 @@ const Footer = () => {
             <h3 className="text-lg font-bold text-blueGrey">Connect</h3>
             <div className="mt-2 flex justify-center space-x-4 lg:justify-start">
               <a
-                href="mailto:bluerosenailsandbeauty@gmail.com"
-                className="h-18 w-18 block rounded-lg bg-white p-2 shadow-lg transition-transform duration-200 hover:scale-110"
-              >
-                <img
-                  src={emailIcon}
-                  alt="Email Icon"
-                  className="h-[40px] w-[40px] object-contain"
-                />
-              </a>
-              <a
                 href="https://www.facebook.com/profile.php?id=61554185572939"
                 target="_blank"
                 rel="noreferrer"
@@ -62,6 +52,16 @@ const Footer = () => {
                 <img
                   src={facebookIcon}
                   alt="Facebook Icon"
+                  className="h-[40px] w-[40px] object-contain"
+                />
+              </a>
+              <a
+                href="mailto:bluerosenailsandbeauty@gmail.com"
+                className="h-18 w-18 block rounded-lg bg-white p-2 shadow-lg transition-transform duration-200 hover:scale-110"
+              >
+                <img
+                  src={emailIcon}
+                  alt="Email Icon"
                   className="h-[40px] w-[40px] object-contain"
                 />
               </a>

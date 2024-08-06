@@ -49,13 +49,6 @@ const PoliciesComponent = () => {
         <li className="mb-2 flex items-start">
           <img src={favicon} alt="bullet point" className="mr-2 h-4 w-4" />
           <span>
-            For cancellations with less than 24 hours&apos; notice, a fee of $25
-            will be charged.
-          </span>
-        </li>
-        <li className="mb-2 flex items-start">
-          <img src={favicon} alt="bullet point" className="mr-2 h-4 w-4" />
-          <span>
             For cancellations with less than 24 hours&apos; notice amounting to
             50% of the appointment cost.
           </span>
