@@ -19,32 +19,36 @@ const TreatmentRow = () => {
       label: 'Nails',
       href: '/stepping-stone-nails-fresha',
     },
-    { image: Brows, label: 'Brows', href: 'https://booking-site.com/brows' },
-    { image: Waxing, label: 'Waxing', href: 'https://booking-site.com/waxing' },
+    { image: Brows, label: 'Brows', href: '/stepping-stone-brows-fresha' },
+    {
+      image: Waxing,
+      label: 'Waxing',
+      href: '/stepping-stone-body-waxing-fresha',
+    },
     {
       image: Massage,
       label: 'Massage',
-      href: 'https://booking-site.com/massage',
+      href: '/stepping-stone-massage-fresha',
     },
     {
       image: Consult,
       label: 'Free Consultations',
-      href: 'https://booking-site.com/consult',
+      href: 'https://www.fresha.com/book-now/blue-rose-nails-beauty-h5gamcsb/services?lid=1023059&eid=2472017&oiid=sv%3A16355515&pId=969545',
     },
     {
       image: FootTreatment,
       label: 'Foot Treatments',
-      href: 'https://booking-site.com/foot-treatment',
+      href: '/stepping-stone-foot-treatments-fresha',
     },
     {
       image: UnisexWaxing,
       label: 'Unisex Waxing',
-      href: 'https://booking-site.com/unisex-waxing',
+      href: '/stepping-stone-unisex-waxing-fresha',
     },
     {
       image: NailsLashesPackages,
       label: 'Lash & Brow Packages',
-      href: 'https://booking-site.com/lash-brow-packages',
+      href: '/stepping-stone-brow-n-lash-package-fresha',
     },
   ]
 

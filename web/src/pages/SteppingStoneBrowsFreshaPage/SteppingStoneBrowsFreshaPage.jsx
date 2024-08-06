@@ -1,17 +1,17 @@
+import BrowTreatments from 'src/components/BrowsTreatmentComponent/BrowsTreatmentComponent'
 import Footer from 'src/components/Footer/Footer'
-import NailTreatments from 'src/components/NailTreatmentsComponent/NailTreatmentsComponent'
 import NavigationComponent from 'src/components/Navigation/Navigation'
 
-const SteppingStoneNailsFreshaPage = () => {
+const SteppingStoneBrowsFreshaPage = () => {
   return (
     <>
       <NavigationComponent />
       <div className="bg-darkBlue">
-        <NailTreatments />
+        <BrowTreatments />
       </div>
       <Footer />
     </>
   )
 }
 
-export default SteppingStoneNailsFreshaPage
+export default SteppingStoneBrowsFreshaPage

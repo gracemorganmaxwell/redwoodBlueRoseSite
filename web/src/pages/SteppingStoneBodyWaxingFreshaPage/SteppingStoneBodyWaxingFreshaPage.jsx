@@ -1,17 +1,17 @@
+import BodyWaxing from 'src/components/BodyWaxingTreatmentComponent/BodyWaxingTreatmentComponent'
 import Footer from 'src/components/Footer/Footer'
-import NailTreatments from 'src/components/NailTreatmentsComponent/NailTreatmentsComponent'
 import NavigationComponent from 'src/components/Navigation/Navigation'
 
-const SteppingStoneNailsFreshaPage = () => {
+const SteppingStoneBodyWaxingFreshaPage = () => {
   return (
     <>
       <NavigationComponent />
       <div className="bg-darkBlue">
-        <NailTreatments />
+        <BodyWaxing />
       </div>
       <Footer />
     </>
   )
 }
 
-export default SteppingStoneNailsFreshaPage
+export default SteppingStoneBodyWaxingFreshaPage
