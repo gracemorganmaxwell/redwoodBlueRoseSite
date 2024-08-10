@@ -250,7 +250,7 @@ const GalleryRow = () => {
               </div>
               <div className="mt-4 text-center md:hidden">
                 <button
-                  className="rounded bg-blue-900 px-4 py-2 font-gfs_didot_regular text-white shadow-lg transition duration-300 hover:bg-blue-700"
+                  className="rounded border border-darkBlue bg-white px-4 py-2 font-gfs_didot_regular text-darkBlue shadow-lg transition duration-300 hover:bg-darkBlue hover:text-white"
                   onClick={openLightbox}
                 >
                   View Media Larger
@@ -258,14 +258,14 @@ const GalleryRow = () => {
               </div>
               <div className="absolute left-0 right-0 top-1/2 flex -translate-y-1/2 transform justify-between px-5">
                 <button
-                  className="h-12 w-12 cursor-pointer rounded-full bg-blue-900 text-2xl font-bold text-white shadow-lg transition duration-300 hover:bg-blue-700"
+                  className="h-12 w-12 cursor-pointer rounded-full border border-darkBlue bg-white text-2xl font-bold text-darkBlue shadow-lg transition duration-300 hover:bg-darkBlue hover:text-white"
                   onClick={previousMedia}
                   aria-label="Previous Media"
                 >
                   &lt;
                 </button>
                 <button
-                  className="h-12 w-12 cursor-pointer rounded-full bg-blue-900 text-2xl font-bold text-white shadow-lg transition duration-300 hover:bg-blue-700"
+                  className="h-12 w-12 cursor-pointer rounded-full border border-darkBlue bg-white text-2xl font-bold text-darkBlue shadow-lg transition duration-300 hover:bg-darkBlue hover:text-white"
                   onClick={nextMedia}
                   aria-label="Next Media"
                 >

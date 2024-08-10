@@ -20,16 +20,14 @@ const Lightbox = ({
       aria-label="Media Lightbox"
     >
       <div className="relative mx-auto max-w-4xl p-4">
-        <div className="relative mx-auto flex items-center justify-between rounded-lg bg-darkBlue p-4 sm:p-6 md:p-8 lg:p-10">
+        <div className="relative mx-auto flex items-center justify-between rounded-lg border border-darkBlue bg-white p-4 sm:p-6 md:p-8 lg:p-10">
           <button
-            className="flex flex-col items-center text-white"
+            className="flex flex-col items-center rounded border border-darkBlue bg-white px-3 py-1 text-darkBlue transition duration-300 hover:bg-darkBlue hover:text-white"
             onClick={previousMedia}
             aria-label="Previous Media"
           >
             <span className="mb-2 text-4xl">&lt;</span>
-            <span className="rounded bg-blue-900 px-3 py-1 text-xl shadow-lg transition duration-300 hover:bg-blue-700">
-              Previous
-            </span>
+            <span className="text-xl">Previous</span>
           </button>
           <div className="relative mx-auto">
             {currentMedia.type === 'image' ? (
@@ -60,24 +58,20 @@ const Lightbox = ({
             )}
           </div>
           <button
-            className="flex flex-col items-center text-white"
+            className="flex flex-col items-center rounded border border-darkBlue bg-white px-3 py-1 text-darkBlue transition duration-300 hover:bg-darkBlue hover:text-white"
             onClick={nextMedia}
             aria-label="Next Media"
           >
             <span className="mb-2 text-4xl">&gt;</span>
-            <span className="rounded bg-blue-900 px-3 py-1 text-xl shadow-lg transition duration-300 hover:bg-blue-700">
-              Next
-            </span>
+            <span className="text-xl">Next</span>
           </button>
           <button
-            className="absolute right-4 top-4 flex flex-col items-center text-white"
+            className="absolute right-4 top-4 flex flex-col items-center rounded border border-darkBlue bg-white px-3 py-1 text-darkBlue transition duration-300 hover:bg-darkBlue hover:text-white"
             onClick={closeLightbox}
             aria-label="Close Lightbox"
           >
             <span className="text-4xl">&times;</span>
-            <span className="rounded bg-blue-900 px-3 py-1 text-xl shadow-lg transition duration-300 hover:bg-blue-700">
-              Close Window
-            </span>
+            <span className="text-xl">Close</span>
           </button>
         </div>
       </div>
