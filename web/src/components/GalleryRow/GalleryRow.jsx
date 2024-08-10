@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useCallback, useMemo } from 'react'
 
 import { AdvancedImage, AdvancedVideo } from '@cloudinary/react'
 import { responsive, placeholder } from '@cloudinary/react'
@@ -6,6 +6,7 @@ import { Cloudinary } from '@cloudinary/url-gen'
 
 import HeadingComponent from 'src/components/HeadingComponent/HeadingComponent'
 import Lightbox from 'src/components/Lightbox/Lightbox'
+import LoadingScreen from 'src/components/LoadingSpinner/LoadingSpinner'
 
 const cld = new Cloudinary({
   cloud: {
@@ -16,175 +17,235 @@ const cld = new Cloudinary({
 const GalleryRow = () => {
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0)
   const [isLightboxOpen, setIsLightboxOpen] = useState(false)
+  const [fade, setFade] = useState(false)
+  const [loading, setLoading] = useState(false) // Initialize loading state
+  const [showSpinner, setShowSpinner] = useState(false) // New state to control spinner visibility
 
-  const galleryMedia = [
-    {
-      publicId: 'Gel_manicure_with_coloured_French_qurqfv',
-      type: 'image',
-      alt: 'Gel manicure with coloured french tips.',
+  const galleryMedia = useMemo(
+    () => [
+      {
+        publicId: 'Gel_manicure_with_coloured_French_qurqfv',
+        type: 'image',
+        alt: 'Gel manicure with coloured french tips.',
+      },
+      {
+        publicId: 'Lash_lift_and_hybrid_brow_stain_zf3e33',
+        type: 'video',
+        alt: 'Lash lift and hybrid brow stain.',
+      },
+      {
+        publicId: 'Soft_gel_extension_with_a_stamp_feature_nail_s46ixx',
+        type: 'image',
+        alt: 'Soft gel extension with a stamp patterned feature nail.',
+      },
+      {
+        publicId: 'Gel_manicure_ja0p1o',
+        type: 'image',
+        alt: 'Gel manicure, multiple colours of blue and purple with a feature deep silver metallic.',
+      },
+      {
+        publicId: 'Gel_manicure_with_soft_French_yzhhes',
+        type: 'image',
+        alt: 'Gel manicure with soft french tips.',
+      },
+      {
+        publicId: 'Gel_manicure_with_matte_and_a_foil_feature_nail_q16lso',
+        type: 'image',
+        alt: 'Gel manicure with light pink, matte black on some fingers, and a gold foil feature nail.',
+      },
+      {
+        publicId: 'Gel_manicure_with_glitter_feature_nails_xgydcj',
+        type: 'image',
+        alt: 'Gel manicure of pale pink with glitter feature nails.',
+      },
+      {
+        publicId: 'Gel_manicure_with_glitter_feature_nails_3_rjfge3',
+        type: 'image',
+        alt: 'Gel manicure in coral pink with glitter feature nails.',
+      },
+      {
+        publicId: 'Gel_manicure_with_glitter_feature_nails_2_ozozjz',
+        type: 'image',
+        alt: 'Gel manicure in black with glitter feature nails.',
+      },
+      {
+        publicId: 'Gel_manicure_with_classic_French_p41aoz',
+        type: 'image',
+        alt: 'Gel manicure with classic French tip.',
+      },
+      {
+        publicId: 'Gel_manicure_12_ph3o7r',
+        type: 'image',
+        alt: 'Gel manicure of neutral metallic silver, black and bronze on different fingers.',
+      },
+      {
+        publicId: 'Gel_manicure_11_mcwzqr',
+        type: 'image',
+        alt: 'Gel manicure beige skin tone colour.',
+      },
+      {
+        publicId: 'Gel_manicure_10_cepadw',
+        type: 'image',
+        alt: 'Gel manicure in a soft rose pink metallic.',
+      },
+      {
+        publicId: 'Gel_manicure_9_kh2evv',
+        type: 'image',
+        alt: 'Gel manicure in gold and black metallic on different fingers.',
+      },
+      {
+        publicId: 'Gel_manicure_8_mbx80q',
+        type: 'image',
+        alt: 'Gel manicure in pale pink.',
+      },
+      {
+        publicId: 'Gel_manicure_7_dkcnvp',
+        type: 'image',
+        alt: 'Gel manicure in pale blue.',
+      },
+      {
+        publicId: 'Gel_manicure_6_rygqcs',
+        type: 'image',
+        alt: 'Gel manicure in bright vibrant pink.',
+      },
+      {
+        publicId: 'Gel_manicure_5_tjew3h',
+        type: 'image',
+        alt: 'Gel manicure in bright vibrant pink on some fingers and metallic bronze on the others.',
+      },
+      {
+        publicId: 'Gel_manicure_4_lzzxxg',
+        type: 'image',
+        alt: 'Gel manicure of beige on some fingers and metallic light bronze-beige on others.',
+      },
+      {
+        publicId: 'Gel_manicure_3_vk184w',
+        type: 'image',
+        alt: 'Gel manicure bright rose pink on some fingers and glittery white on other fingers.',
+      },
+      {
+        publicId: 'Gel_manicure_2_ydpnud',
+        type: 'image',
+        alt: 'Gel manicure of a neutral rose pink.',
+      },
+      {
+        publicId: 'Builder_gel_natural_nail_overlay_na7nkz',
+        type: 'image',
+        alt: 'Builder gel natural nail overlay in a natural grey, green tone of colour.',
+      },
+      {
+        publicId: 'Builder_gel_natural_nail_overlay_with_glitter_art_hdyo8f',
+        type: 'image',
+        alt: 'Builder gel natural nail overlay with glitter art.',
+      },
+      {
+        publicId: 'Hybrid_brow_stain_and_shape_with_Lash_lift_and_tint_advpra',
+        type: 'video',
+        alt: 'Hybrid brow stain and shape with Lash lift and tint.',
+      },
+      {
+        publicId: 'Brow_lamination_with_hybrid_brow_stain_bonfyf',
+        type: 'video',
+        alt: 'Brow lamination with hybrid brow stain.',
+      },
+      {
+        publicId: 'Hybrid_brow_stain_cyphij',
+        type: 'image',
+        alt: 'Hybrid brow stain.',
+      },
+      {
+        publicId: 'Hybrid_brow_stain_and_shape_sytfho',
+        type: 'image',
+        alt: 'Hybrid brow stain and shape.',
+      },
+      {
+        publicId: 'Hybrid_brow_stain_and_shape_3_asoyaq',
+        type: 'image',
+        alt: 'Hybrid brow stain and shape.',
+      },
+      {
+        publicId: 'Hybrid_brow_stain_and_shape_2_stains',
+        type: 'image',
+        alt: 'Hybrid brow stain and shape.',
+      },
+      {
+        publicId: 'Hybrid_brow_stain_shape_with_lash_lift_tint_sb5bca',
+        type: 'image',
+        alt: 'Hybrid brow stain shape with lash lift tint.',
+      },
+      {
+        publicId: 'Hybrid_brow_stain_shape_with_lash_lift_tint_2_jdrf3z',
+        type: 'image',
+        alt: 'Hybrid brow stain shape with lash lift tint.',
+      },
+    ],
+    []
+  ) // The dependency array is empty because galleryMedia doesn't change
+
+  const handleFade = () => {
+    setFade(true)
+    setTimeout(() => setFade(false), 300) // Match the duration of the transition
+  }
+
+  const preloadMedia = useCallback(
+    (index) => {
+      const nextMedia = galleryMedia[index]
+      if (nextMedia.type === 'image') {
+        const img = new Image()
+        img.src = cld
+          .image(nextMedia.publicId)
+          .quality('auto')
+          .format('auto')
+          .toURL()
+        img.onload = () => {
+          setLoading(false)
+          setShowSpinner(false) // Hide spinner once image is loaded
+        }
+      } else {
+        const vid = document.createElement('video')
+        vid.src = cld
+          .video(nextMedia.publicId)
+          .quality('auto')
+          .format('auto')
+          .toURL()
+        vid.oncanplay = () => {
+          setLoading(false)
+          setShowSpinner(false) // Hide spinner once video is ready
+        }
+        vid.preload = 'auto' // Ensure video is preloaded
+      }
     },
-    {
-      publicId: 'Lash_lift_and_hybrid_brow_stain_zf3e33',
-      type: 'video',
-      alt: 'Lash lift and hybrid brow stain.',
-    },
-    {
-      publicId: 'Soft_gel_extension_with_a_stamp_feature_nail_s46ixx',
-      type: 'image',
-      alt: 'Soft gel extension with a stamp patterned feature nail.',
-    },
-    {
-      publicId: 'Gel_manicure_ja0p1o',
-      type: 'image',
-      alt: 'Gel manicure, multiple colours of blue and purple with a feature deep silver metallic.',
-    },
-    {
-      publicId: 'Gel_manicure_with_soft_French_yzhhes',
-      type: 'image',
-      alt: 'Gel manicure with soft french tips.',
-    },
-    {
-      publicId: 'Gel_manicure_with_matte_and_a_foil_feature_nail_q16lso',
-      type: 'image',
-      alt: 'Gel manicure with light pink, matte black on some fingers, and a gold foil feature nail.',
-    },
-    {
-      publicId: 'Gel_manicure_with_glitter_feature_nails_xgydcj',
-      type: 'image',
-      alt: 'Gel manicure of pale pink with glitter feature nails.',
-    },
-    {
-      publicId: 'Gel_manicure_with_glitter_feature_nails_3_rjfge3',
-      type: 'image',
-      alt: 'Gel manicure in coral pink with glitter feature nails.',
-    },
-    {
-      publicId: 'Gel_manicure_with_glitter_feature_nails_2_ozjzjz',
-      type: 'image',
-      alt: 'Gel manicure in black with glitter feature nails.',
-    },
-    {
-      publicId: 'Gel_manicure_with_classic_French_p41aoz',
-      type: 'image',
-      alt: 'Gel manicure with classic French tip.',
-    },
-    {
-      publicId: 'Gel_manicure_12_ph3o7r',
-      type: 'image',
-      alt: 'Gel manicure of neutral metallic silver, black and bronze on different fingers.',
-    },
-    {
-      publicId: 'Gel_manicure_11_mcqwzqr',
-      type: 'image',
-      alt: 'Gel manicure beige skin tone colour.',
-    },
-    {
-      publicId: 'Gel_manicure_10_cepadw',
-      type: 'image',
-      alt: 'Gel manicure in a soft rose pink metallic.',
-    },
-    {
-      publicId: 'Gel_manicure_9_kh2evv',
-      type: 'image',
-      alt: 'Gel manicure in gold and black metallic on different fingers.',
-    },
-    {
-      publicId: 'Gel_manicure_8_mbx80q',
-      type: 'image',
-      alt: 'Gel manicure in pale pink.',
-    },
-    {
-      publicId: 'Gel_manicure_7_dkcnvp',
-      type: 'image',
-      alt: 'Gel manicure in pale blue.',
-    },
-    {
-      publicId: 'Gel_manicure_6_rygqcs',
-      type: 'image',
-      alt: 'Gel manicure in bright vibrant pink.',
-    },
-    {
-      publicId: 'Gel_manicure_5_tjew3h',
-      type: 'image',
-      alt: 'Gel manicure in bright vibrant pink on some fingers and metallic bronze on the others.',
-    },
-    {
-      publicId: 'Gel_manicure_4_lzzxxg',
-      type: 'image',
-      alt: 'Gel manicure of beige on some fingers and metallic light bronze-beige on others.',
-    },
-    {
-      publicId: 'Gel_manicure_3_vk184w',
-      type: 'image',
-      alt: 'Gel manicure bright rose pink on some fingers and glittery white on other fingers.',
-    },
-    {
-      publicId: 'Gel_manicure_2_ydpnud',
-      type: 'image',
-      alt: 'Gel manicure of a neutral rose pink.',
-    },
-    {
-      publicId: 'Builder_gel_natural_nail_overlay_na7nkz',
-      type: 'image',
-      alt: 'Builder gel natural nail overlay in a natural grey, green tone of colour.',
-    },
-    {
-      publicId: 'Builder_gel_natural_nail_overlay_with_glitter_art_hdyo8f',
-      type: 'image',
-      alt: 'Builder gel natural nail overlay with glitter art.',
-    },
-    {
-      publicId: 'Hybrid_brow_stain_and_shape_with_Lash_lift_and_tint_advpra',
-      type: 'video',
-      alt: 'Hybrid brow stain and shape with Lash lift and tint.',
-    },
-    {
-      publicId: 'Brow_lamination_with_hybrid_brow_stain_bonfyf',
-      type: 'video',
-      alt: 'Brow lamination with hybrid brow stain.',
-    },
-    {
-      publicId: 'Hybrid_brow_stain_cyphij',
-      type: 'image',
-      alt: 'Hybrid brow stain.',
-    },
-    {
-      publicId: 'Hybrid_brow_stain_and_shape_sytfho',
-      type: 'image',
-      alt: 'Hybrid brow stain and shape.',
-    },
-    {
-      publicId: 'Hybrid_brow_stain_and_shape_3_asoyaq',
-      type: 'image',
-      alt: 'Hybrid brow stain and shape.',
-    },
-    {
-      publicId: 'Hybrid_brow_stain_and_shape_2_stains',
-      type: 'image',
-      alt: 'Hybrid brow stain and shape.',
-    },
-    {
-      publicId: 'Hybrid_brow_stain_shape_with_lash_lift_tint_sb5bca',
-      type: 'image',
-      alt: 'Hybrid brow stain shape with lash lift tint.',
-    },
-    {
-      publicId: 'Hybrid_brow_stain_shape_with_lash_lift_tint_2_jdrf3z',
-      type: 'image',
-      alt: 'Hybrid brow stain shape with lash lift tint.',
-    },
-  ]
+    [galleryMedia]
+  )
 
   const previousMedia = () => {
-    setCurrentMediaIndex((prevIndex) =>
-      prevIndex === 0 ? galleryMedia.length - 1 : prevIndex - 1
-    )
+    handleFade()
+    setLoading(true)
+    setTimeout(() => {
+      if (loading) setShowSpinner(true)
+    }, 500) // Delay spinner appearance by 500ms
+    setTimeout(() => {
+      setCurrentMediaIndex((prevIndex) =>
+        prevIndex === 0 ? galleryMedia.length - 1 : prevIndex - 1
+      )
+      preloadMedia(
+        (currentMediaIndex - 1 + galleryMedia.length) % galleryMedia.length
+      )
+    }, 300)
   }
 
   const nextMedia = () => {
-    setCurrentMediaIndex((prevIndex) =>
-      prevIndex === galleryMedia.length - 1 ? 0 : prevIndex + 1
-    )
+    handleFade()
+    setLoading(true)
+    setTimeout(() => {
+      if (loading) setShowSpinner(true)
+    }, 500) // Delay spinner appearance by 500ms
+    setTimeout(() => {
+      setCurrentMediaIndex((prevIndex) =>
+        prevIndex === galleryMedia.length - 1 ? 0 : prevIndex + 1
+      )
+      preloadMedia((currentMediaIndex + 1) % galleryMedia.length)
+    }, 300)
   }
 
   const openLightbox = () => {
@@ -201,6 +262,10 @@ const GalleryRow = () => {
     }
   }
 
+  useEffect(() => {
+    preloadMedia((currentMediaIndex + 1) % galleryMedia.length)
+  }, [currentMediaIndex, preloadMedia, galleryMedia.length])
+
   return (
     <div className="bg-darkBlue py-16 sm:py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -208,29 +273,40 @@ const GalleryRow = () => {
           <HeadingComponent title="My Work" />
           <div className="flex h-full items-center justify-center">
             <div className="relative w-full max-w-[1400px] rounded-lg bg-white p-5 shadow-lg">
+              {showSpinner && <LoadingScreen />}
               <div
                 role="button"
                 onClick={openLightbox}
                 onKeyDown={handleMediaKeyDown}
                 tabIndex={0}
                 aria-label="Open Lightbox"
+                className={`transition-opacity duration-500 ease-in-out ${
+                  fade ? 'opacity-0' : 'opacity-100'
+                }`}
               >
                 {galleryMedia[currentMediaIndex].type === 'image' ? (
                   <AdvancedImage
-                    cldImg={cld.image(galleryMedia[currentMediaIndex].publicId)}
+                    cldImg={cld
+                      .image(galleryMedia[currentMediaIndex].publicId)
+                      .quality('auto')
+                      .format('auto')}
                     plugins={[responsive(), placeholder()]}
                     alt={galleryMedia[currentMediaIndex].alt}
-                    className="mx-auto h-auto max-h-[200px] w-full max-w-[200px] cursor-pointer rounded-lg object-cover shadow-lg md:max-h-[300px] md:max-w-[300px] lg:max-h-[500px] lg:max-w-[500px]"
+                    className="mx-auto aspect-video h-auto max-h-[500px] w-full max-w-full cursor-pointer rounded-lg object-cover shadow-lg"
                   />
                 ) : (
                   <AdvancedVideo
-                    cldVid={cld.video(galleryMedia[currentMediaIndex].publicId)}
+                    cldVid={cld
+                      .video(galleryMedia[currentMediaIndex].publicId)
+                      .quality('auto')
+                      .format('auto')}
                     controls
                     autoplay
                     muted
                     plugins={[responsive(), placeholder()]}
-                    className="mx-auto h-auto max-h-[200px] w-full max-w-[200px] cursor-pointer rounded-lg object-cover shadow-lg md:max-h-[300px] md:max-w-[300px] lg:max-h-[500px] lg:max-w-[500px]"
+                    className="mx-auto aspect-video h-auto max-h-[500px] w-full max-w-full cursor-pointer rounded-lg object-cover shadow-lg"
                     aria-label="Video without audio or captions"
+                    onLoadedData={() => setLoading(false)}
                   >
                     <track
                       kind="captions"

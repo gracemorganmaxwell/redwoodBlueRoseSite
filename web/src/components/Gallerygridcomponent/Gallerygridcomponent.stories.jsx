@@ -10,7 +10,7 @@
 //
 // See https://storybook.js.org/docs/react/writing-stories/args.
 
-import Gallerygridcomponent from './Gallerygridcomponent'
+import Gallerygridcomponent from './GalleryGridComponent'
 
 export default { component: Gallerygridcomponent }
 
