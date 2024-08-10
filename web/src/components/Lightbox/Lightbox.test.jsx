@@ -26,7 +26,7 @@ describe('Lightbox', () => {
         publicId: 'Lash_lift_and_hybrid_brow_stain_zf3e33',
         type: 'video',
         alt: 'Video 2',
-      }
+      },
     ]
     const mockCurrentMediaIndex = 0
     const mockPreviousMedia = jest.fn()
