@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import desktopHeroImage from 'public/images/desktopHeroImage.png'
 import heroBackgroundImage from 'public/images/heroBkgroundImage.jpeg'
@@ -6,16 +6,32 @@ import heroBackgroundImage from 'public/images/heroBkgroundImage.jpeg'
 import CtaButton from '../CtaButton/CtaButton'
 
 const HeroComponent = () => {
-  const backgroundImage =
+  const [backgroundImage, setBackgroundImage] = useState(
     window.innerWidth >= 1024 ? desktopHeroImage : heroBackgroundImage
+  )
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setBackgroundImage(desktopHeroImage)
+      } else {
+        setBackgroundImage(heroBackgroundImage)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   return (
     <div className="relative bg-darkBlue">
       <div
-        className={`relative h-screen w-full bg-cover bg-center bg-no-repeat`}
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-        }}
+        className="relative h-screen w-full bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${backgroundImage})` }}
       >
         {/* Overlay */}
         <div className="absolute inset-0 bg-black bg-opacity-35"></div>
