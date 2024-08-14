@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['src/**/*.{js,jsx,ts,tsx}'],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -14,21 +14,41 @@ module.exports = {
         black: '#000000',
         ascentBlue: '#2195e8',
       },
-      backgroundImage: {
-        'blue-blackbkgroundgradient':
-          'linear-gradient(90deg, #222147 , #535F93)',
+      transitionProperty: {
+        'opacity-transform': 'opacity, transform',
       },
-    },
-    fontFamily: {
-      sans: ['Inter', 'sans-serif'],
-      gfs_didot_regular: ['GFS Didot', 'serif'],
-    },
-    screens: {
-      xs: '320px', // Extra Small Screen Size
-      sm: '640px', // Mobile Screen Size
-      md: '768px', // Tablet Screen Size
-      lg: '1024px', // Desktop Screen Size
-      xl: '1280px', // Large Desktop Screen Size
+      transitionDuration: {
+        400: '400ms',
+        600: '600ms',
+      },
+      transitionTimingFunction: {
+        'ease-in-out-cubic': 'cubic-bezier(0.645, 0.045, 0.355, 1.000)',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'scale(0.95)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        fadeOut: {
+          '0%': { opacity: '1', transform: 'scale(1)' },
+          '100%': { opacity: '0', transform: 'scale(0.95)' },
+        },
+      },
+      animation: {
+        fadeIn: 'fadeIn 400ms ease-in-out-cubic',
+        fadeOut: 'fadeOut 400ms ease-in-out-cubic',
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        gfs_didot_regular: ['GFS Didot', 'serif'],
+      },
+      screens: {
+        xs: '320px',
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+      },
     },
   },
   plugins: [],

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import heroBackgroundImage from 'public/images/heroBkgroundImage.jpeg'
+import heroBackgroundImage from 'web/public/images/softgelextensions48.png'
 
 import CtaButton from '../CtaButton/CtaButton'
 
@@ -9,7 +9,7 @@ const HeroComponent = () => {
     <div className="relative bg-darkBlue">
       {/* Background Image */}
       <div
-        className="relative mx-auto h-[534px] w-full bg-cover bg-center bg-no-repeat sm:h-[869px] sm:max-w-[1159px] lg:h-[1024px] lg:max-w-[1366px]"
+        className="relative h-screen w-full bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroBackgroundImage})` }}
       >
         {/* Overlay */}

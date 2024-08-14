@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=GFS+Didot&family=Inter:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .transition-opacity-transform {
+    @apply transition-opacity transform;
+    will-change: opacity, transform;
+  }
+  .ease-in-out-cubic {
+    transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+  }
+}
+
+.lightbox-enter-active {
+  @apply transition-opacity-transform duration-400 ease-in-out-cubic opacity-100 scale-100;
+}
