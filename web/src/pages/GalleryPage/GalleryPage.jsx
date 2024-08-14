@@ -1,7 +1,7 @@
 import { Metadata } from '@redwoodjs/web'
 
 import Footer from 'src/components/Footer/Footer'
-import Gallerygridcomponent from 'src/components/Gallerygridcomponent/Gallerygridcomponent'
+import GalleryGridComponent from 'src/components/GalleryGridComponent/GalleryGridComponent'
 import NavigationComponent from 'src/components/Navigation/Navigation'
 
 const GalleryPage = () => {
@@ -9,7 +9,7 @@ const GalleryPage = () => {
     <>
       <Metadata title="Gallery" description="Gallery page" />
       <NavigationComponent />
-      <Gallerygridcomponent />
+      <GalleryGridComponent />
       <Footer />
     </>
   )

@@ -195,6 +195,7 @@ const galleryGridMedia = [
 const GalleryGridComponent = () => {
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0)
   const [isLightboxOpen, setIsLightboxOpen] = useState(false)
+  const [galleryMedia] = useState(galleryGridMedia)
 
   const openLightbox = (index) => {
     setCurrentMediaIndex(index)
@@ -207,33 +208,30 @@ const GalleryGridComponent = () => {
 
   const previousMedia = () => {
     setCurrentMediaIndex((prevIndex) =>
-      prevIndex === 0 ? galleryGridMedia.length - 1 : prevIndex - 1
+      prevIndex === 0 ? galleryMedia.length - 1 : prevIndex - 1
     )
   }
 
   const nextMedia = () => {
     setCurrentMediaIndex((prevIndex) =>
-      prevIndex === galleryGridMedia.length - 1 ? 0 : prevIndex + 1
+      prevIndex === galleryMedia.length - 1 ? 0 : prevIndex + 1
     )
   }
 
-  const nailsMedia = galleryGridMedia.filter(
-    (media) => media.category === 'nails'
-  )
-  const browsMedia = galleryGridMedia.filter(
-    (media) => media.category === 'brows'
-  )
+  const nailsMedia = galleryMedia.filter((media) => media.category === 'nails')
+  const browsMedia = galleryMedia.filter((media) => media.category === 'brows')
 
   return (
-    <div className="bg-darkBlue py-16 sm:py-24 md:py-32">
+    <div
+      data-testid="gallery-grid-component"
+      className="bg-darkBlue py-16 sm:py-24 md:py-32"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="relative mx-auto max-w-4xl rounded-[12px] bg-white p-8 sm:p-12 md:p-16 lg:mx-auto lg:max-w-[1366px]">
           <HeadingComponent title="My Work" />
           <LineSeparatorComponent />
           <SubheadingComponent title="Nails" />
           <div className="mb-8 grid grid-cols-2 gap-4 rounded-md sm:grid-cols-3 lg:grid-cols-4">
-            {' '}
-            {/* Added mb-8 for spacing */}
             {nailsMedia.map((media, index) => (
               <div
                 key={index}
@@ -319,7 +317,7 @@ const GalleryGridComponent = () => {
       </div>
       {isLightboxOpen && (
         <Lightbox
-          mediaItems={galleryGridMedia}
+          mediaItems={galleryMedia}
           currentMediaIndex={currentMediaIndex}
           previousMedia={previousMedia}
           nextMedia={nextMedia}
