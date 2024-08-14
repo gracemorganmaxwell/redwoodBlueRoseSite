@@ -6,7 +6,7 @@ import '@testing-library/jest-dom/extend-expect'
 // Mocking external dependencies
 jest.mock('@cloudinary/react', () => ({
   AdvancedImage: ({ alt }) => <img alt={alt} data-testid="advanced-image" />,
-  AdvancedVideo: React.forwardRef(({ alt, ...props }, ref) => (
+  AdvancedVideo: React.forwardRef(({ _alt, ...props }, ref) => (
     <video ref={ref} data-testid="advanced-video" {...props}>
       <track kind="captions" />
     </video>

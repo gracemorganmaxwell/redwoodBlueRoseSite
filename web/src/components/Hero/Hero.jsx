@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 
+import desktopHeroImage from 'public/images/desktopHeroImage.png'
 import heroBackgroundImage from 'public/images/heroBkgroundImage.jpeg'
 
 import CtaButton from '../CtaButton/CtaButton'
 
 const HeroComponent = () => {
-  const [backgroundImage, setBackgroundImage] = useState(
+  // Set the initial background image based on the window width
+  const [backgroundImage, setBackgroundImage] = useState(() =>
     window.innerWidth >= 1024 ? desktopHeroImage : heroBackgroundImage
   )
 
@@ -30,7 +32,7 @@ const HeroComponent = () => {
     <div className="relative bg-darkBlue">
       <div
         className="relative mx-auto h-[534px] w-full bg-cover bg-center bg-no-repeat sm:h-[869px] sm:max-w-[1159px] lg:h-[1024px] lg:max-w-[1366px]"
-        style={{ backgroundImage: `url(${heroBackgroundImage})` }}
+        style={{ backgroundImage: `url(${backgroundImage})` }}
       >
         {/* Overlay */}
         <div className="absolute inset-0 bg-black bg-opacity-35"></div>

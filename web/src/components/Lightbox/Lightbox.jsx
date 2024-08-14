@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import { AdvancedImage, AdvancedVideo } from '@cloudinary/react'
-import { CSSTransition } from 'react-transition-group'
+import { AdvancedImage, AdvancedVideo } from '@cloudinary/react';
+// Removed CSSTransition as it is not used in this component
 
 const Lightbox = ({
   mediaItems,
@@ -11,7 +11,7 @@ const Lightbox = ({
   closeLightbox,
   cld,
 }) => {
-  const currentMedia = mediaItems[currentMediaIndex]
+  const currentMedia = mediaItems[currentMediaIndex];
 
   return (
     <div
@@ -83,7 +83,7 @@ const Lightbox = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Lightbox
+export default Lightbox;

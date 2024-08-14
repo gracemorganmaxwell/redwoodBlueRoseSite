@@ -1,6 +1,6 @@
 import { render } from '@redwoodjs/testing/web'
 
-import SteppingStoneBodyWaxingFreshaPage from './SteppingStoneBodyWaxingFreshaPage'
+import SteppingStoneBodyWaxingFroshPage from './SteppingStoneBodyWaxingFreshaPage'
 
 //   Improve this test with help from the Redwood Testing Doc:
 //   https://redwoodjs.com/docs/testing#testing-pages-layouts
@@ -8,7 +8,7 @@ import SteppingStoneBodyWaxingFreshaPage from './SteppingStoneBodyWaxingFreshaPa
 describe('SteppingStoneBodyWaxingFreshaPage', () => {
   it('renders successfully', () => {
     expect(() => {
-      render(<SteppingStoneBodyWaxingFreshaPage />)
+      render(<SteppingStoneBodyWaxingFroshPage />)
     }).not.toThrow()
   })
 })

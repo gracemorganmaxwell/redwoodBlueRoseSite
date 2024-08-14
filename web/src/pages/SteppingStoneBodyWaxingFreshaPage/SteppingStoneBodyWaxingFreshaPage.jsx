@@ -2,7 +2,7 @@ import BodyWaxing from 'src/components/BodyWaxingTreatmentComponent/BodyWaxingTr
 import Footer from 'src/components/Footer/Footer'
 import NavigationComponent from 'src/components/Navigation/Navigation'
 
-const SteppingStoneBodyWaxingFreshaPage = () => {
+const SteppingStoneBodyWaxingFroshPage = () => {
   return (
     <>
       <NavigationComponent />
@@ -14,4 +14,4 @@ const SteppingStoneBodyWaxingFreshaPage = () => {
   )
 }
 
-export default SteppingStoneBodyWaxingFreshaPage
+export default SteppingStoneBodyWaxingFroshPage

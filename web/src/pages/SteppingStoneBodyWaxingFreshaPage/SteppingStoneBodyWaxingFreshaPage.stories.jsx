@@ -1,7 +1,7 @@
-import SteppingStoneBodyWaxingFreshaPage from './SteppingStoneBodyWaxingFreshaPage'
+import SteppingStoneBodyWaxingFroshPage from './SteppingStoneBodyWaxingFreshaPage'
 
 const meta = {
-  component: SteppingStoneBodyWaxingFreshaPage,
+  component: SteppingStoneBodyWaxingFroshPage,
 }
 
 export default meta
