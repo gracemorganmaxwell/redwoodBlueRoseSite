@@ -1,5 +1,4 @@
-import React from 'react'
-
+import React, { useState } from 'react'
 import {
   Form,
   FormError,
@@ -9,6 +8,7 @@ import {
   TextAreaField,
 } from '@redwoodjs/forms'
 import { gql, useMutation } from '@redwoodjs/web'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 import FormSubmitBtnComponent from 'src/components/FormSubmitBtnComponent/FormSubmitBtnComponent'
 import HeadingComponent from 'src/components/HeadingComponent/HeadingComponent'
@@ -28,9 +28,25 @@ const ContactFormComponent = () => {
       alert('Thank you for your message!')
     },
   })
+  const [recaptchaValue, setRecaptchaValue] = useState(null)
 
   const onSubmit = (data) => {
-    createContact({ variables: { input: data } })
+    if (!recaptchaValue) {
+      alert('Please complete the reCAPTCHA.')
+      return
+    }
+    createContact({
+      variables: {
+        input: {
+          ...data,
+          recaptchaValue, // Include the reCAPTCHA response in the mutation
+        },
+      },
+    })
+  }
+
+  const handleRecaptchaChange = (value) => {
+    setRecaptchaValue(value)
   }
 
   return (
@@ -100,6 +116,11 @@ const ContactFormComponent = () => {
             />
             <FieldError name="message" className="text-red-600" />
           </div>
+
+          <ReCAPTCHA
+            sitekey={process.env.reCAPTCHA_site_key}
+            onChange={handleRecaptchaChange}
+          />
 
           <FormSubmitBtnComponent label="Send Message" loading={loading} />
           <FormBottomPrivacyCopy />
