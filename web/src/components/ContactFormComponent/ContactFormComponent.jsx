@@ -1,4 +1,7 @@
-import React, { useState } from 'react'
+import React, { useRef } from 'react'
+
+import ReCAPTCHA from 'react-google-recaptcha'
+
 import {
   Form,
   FormError,
@@ -8,7 +11,6 @@ import {
   TextAreaField,
 } from '@redwoodjs/forms'
 import { gql, useMutation } from '@redwoodjs/web'
-import ReCAPTCHA from 'react-google-recaptcha'
 
 import FormSubmitBtnComponent from 'src/components/FormSubmitBtnComponent/FormSubmitBtnComponent'
 import HeadingComponent from 'src/components/HeadingComponent/HeadingComponent'
@@ -28,25 +30,24 @@ const ContactFormComponent = () => {
       alert('Thank you for your message!')
     },
   })
-  const [recaptchaValue, setRecaptchaValue] = useState(null)
+  const recaptchaRef = useRef(null)
 
-  const onSubmit = (data) => {
-    if (!recaptchaValue) {
-      alert('Please complete the reCAPTCHA.')
+  const onSubmit = async (data) => {
+    // Execute the reCAPTCHA v3
+    const token = await recaptchaRef.current.executeAsync()
+    if (!token) {
+      alert('reCAPTCHA verification failed. Please try again.')
       return
     }
-    createContact({
+
+    await createContact({
       variables: {
         input: {
           ...data,
-          recaptchaValue, // Include the reCAPTCHA response in the mutation
+          recaptchaValue: token,
         },
       },
     })
-  }
-
-  const handleRecaptchaChange = (value) => {
-    setRecaptchaValue(value)
   }
 
   return (
@@ -73,6 +74,7 @@ const ContactFormComponent = () => {
               className="mt-1 w-full rounded border border-gray-300 p-2"
               validation={{ required: true }}
               errorClassName="border-red-500 text-left w-full rounded border p-2"
+              autoComplete="name"
             />
             <FieldError name="name" className="text-right text-red-600" />
           </div>
@@ -96,6 +98,7 @@ const ContactFormComponent = () => {
                 },
               }}
               errorClassName="border-red-500 text-left w-full rounded border p-2"
+              autoComplete="email"
             />
             <FieldError name="email" className="text-red-600" />
           </div>
@@ -113,14 +116,18 @@ const ContactFormComponent = () => {
               className="mt-1 h-32 w-full rounded border border-gray-300 p-2"
               validation={{ required: true }}
               errorClassName="border-red-500 text-left w-full rounded border p-2"
+              autoComplete="off"
             />
             <FieldError name="message" className="text-red-600" />
           </div>
 
-          <ReCAPTCHA
-            sitekey={process.env.reCAPTCHA_site_key}
-            onChange={handleRecaptchaChange}
-          />
+          <div className="flex justify-center">
+            <ReCAPTCHA
+              sitekey={process.env.REDWOOD_ENV_RECAPTCHA_SITE_KEY}
+              size="invisible"
+              ref={recaptchaRef}
+            />
+          </div>
 
           <FormSubmitBtnComponent label="Send Message" loading={loading} />
           <FormBottomPrivacyCopy />

@@ -1,56 +1,88 @@
-import {
-  contacts,
-  contact,
-  createContact,
-  updateContact,
-  deleteContact,
-} from './contacts'
+import fetch from 'node-fetch'
 
-// Generated boilerplate tests do not account for all circumstances
-// and can fail without adjustments, e.g. Float.
-//           Please refer to the RedwoodJS Testing Docs:
-//       https://redwoodjs.com/docs/testing#testing-services
-// https://redwoodjs.com/docs/testing#jest-expect-type-considerations
+import { mailer } from 'src/lib/mailer'
 
-describe('contacts', () => {
-  scenario('returns all contacts', async (scenario) => {
-    const result = await contacts()
+import { sendContactMessage } from './contacts'
 
-    expect(result.length).toEqual(Object.keys(scenario.contact).length)
+jest.mock('node-fetch')
+jest.mock('src/lib/mailer', () => ({
+  mailer: {
+    send: jest.fn(),
+  },
+}))
+
+describe('sendContactMessage', () => {
+  const recaptchaSuccessResponse = {
+    success: true,
+  }
+
+  const recaptchaFailureResponse = {
+    success: false,
+    'error-codes': ['invalid-input-response'],
+  }
+
+  const input = {
+    name: 'John Doe',
+    email: 'john@example.com',
+    message: 'Hello, this is a test message.',
+    recaptchaValue: 'test-recaptcha-token',
+  }
+
+  beforeEach(() => {
+    fetch.mockClear()
+    mailer.send.mockClear()
   })
 
-  scenario('returns a single contact', async (scenario) => {
-    const result = await contact({ id: scenario.contact.one.id })
-
-    expect(result).toEqual(scenario.contact.one)
-  })
-
-  scenario('creates a contact', async () => {
-    const result = await createContact({
-      input: { name: 'String', email: 'String', message: 'String' },
+  it('sends an email when reCAPTCHA is successful', async () => {
+    fetch.mockResolvedValueOnce({
+      json: () => Promise.resolve(recaptchaSuccessResponse),
     })
 
-    expect(result.name).toEqual('String')
-    expect(result.email).toEqual('String')
-    expect(result.message).toEqual('String')
+    await sendContactMessage({ input })
+
+    expect(fetch).toHaveBeenCalledWith(
+      'https://www.google.com/recaptcha/api/siteverify',
+      expect.objectContaining({
+        method: 'POST',
+      })
+    )
+    expect(mailer.send).toHaveBeenCalledWith(expect.any(Object), {
+      to: 'gracemorganmaxwell@gmail.com',
+      subject: 'New Contact Form Submission',
+      replyTo: input.email,
+      from: 'no-reply@yourdomain.com',
+    })
   })
 
-  scenario('updates a contact', async (scenario) => {
-    const original = await contact({ id: scenario.contact.one.id })
-    const result = await updateContact({
-      id: original.id,
-      input: { name: 'String2' },
+  it('throws an error when reCAPTCHA validation fails', async () => {
+    fetch.mockResolvedValueOnce({
+      json: () => Promise.resolve(recaptchaFailureResponse),
     })
 
-    expect(result.name).toEqual('String2')
+    await expect(sendContactMessage({ input })).rejects.toThrow(
+      'reCAPTCHA validation failed. Please try again.'
+    )
+
+    expect(fetch).toHaveBeenCalledWith(
+      'https://www.google.com/recaptcha/api/siteverify',
+      expect.objectContaining({
+        method: 'POST',
+      })
+    )
+    expect(mailer.send).not.toHaveBeenCalled()
   })
 
-  scenario('deletes a contact', async (scenario) => {
-    const original = await deleteContact({
-      id: scenario.contact.one.id,
+  it('throws an error when email sending fails', async () => {
+    fetch.mockResolvedValueOnce({
+      json: () => Promise.resolve(recaptchaSuccessResponse),
     })
-    const result = await contact({ id: original.id })
 
-    expect(result).toEqual(null)
+    mailer.send.mockRejectedValueOnce(new Error('Email sending failed'))
+
+    await expect(sendContactMessage({ input })).rejects.toThrow(
+      'Failed to send email. Please try again later.'
+    )
+
+    expect(mailer.send).toHaveBeenCalled()
   })
 })

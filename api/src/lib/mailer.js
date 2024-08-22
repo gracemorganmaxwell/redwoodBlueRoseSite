@@ -9,8 +9,8 @@ export const mailer = new Mailer({
         transport: {
           service: 'gmail',
           auth: {
-            user: process.env.GMAIL_USER,
-            pass: process.env.GMAIL_PASS,
+            user: process.env.REDWOOD_ENV_GMAIL_USER,
+            pass: process.env.REDWOOD_ENV_GMAIL_PASS,
           },
         },
       }),

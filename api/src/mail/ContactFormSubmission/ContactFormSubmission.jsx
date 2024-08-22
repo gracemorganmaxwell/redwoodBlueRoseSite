@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 import {
   Html,
@@ -12,7 +12,7 @@ import {
   Heading,
 } from '@react-email/components'
 
-export const ContactUsEmail = ({ name, email, message }) => {
+export const ContactFormSubmission = ({ name, email, message }) => {
   return (
     <Html>
       <Head />

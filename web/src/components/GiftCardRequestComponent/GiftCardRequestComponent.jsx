@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
+
+import ReCAPTCHA from 'react-google-recaptcha'
 
 import {
   Form,
@@ -31,9 +33,23 @@ const GiftCardRequestComponent = () => {
       alert('Your gift card request has been submitted!')
     },
   })
+  const recaptchaRef = useRef(null)
 
-  const onSubmit = (data) => {
-    create({ variables: { input: data } })
+  const onSubmit = async (data) => {
+    const token = await recaptchaRef.current.executeAsync()
+    if (!token) {
+      alert('reCAPTCHA verification failed. Please try again.')
+      return
+    }
+
+    await create({
+      variables: {
+        input: {
+          ...data,
+          recaptchaValue: token,
+        },
+      },
+    })
   }
 
   const handleDeliveryMethodChange = (event) => {
@@ -63,6 +79,7 @@ const GiftCardRequestComponent = () => {
               className="mt-1 w-full rounded border border-gray-300 p-2"
               validation={{ required: true }}
               errorClassName="border-red-500"
+              autoComplete="name"
             />
             <FieldError name="recipientName" className="text-red-600" />
           </div>
@@ -121,6 +138,7 @@ const GiftCardRequestComponent = () => {
                 className="mt-1 w-full rounded border border-gray-300 p-2"
                 validation={{ required: true }}
                 errorClassName="border-red-500"
+                autoComplete="email"
               />
               <FieldError name="email" className="text-red-600" />
             </div>
@@ -136,6 +154,7 @@ const GiftCardRequestComponent = () => {
                 className="mt-1 w-full rounded border border-gray-300 p-2"
                 validation={{ required: true }}
                 errorClassName="border-red-500"
+                autoComplete="street-address"
               />
               <FieldError name="address" className="text-red-600" />
             </div>
@@ -154,6 +173,7 @@ const GiftCardRequestComponent = () => {
                 className="mt-1 w-full rounded border border-gray-300 p-2"
                 validation={{ required: true }}
                 errorClassName="border-red-500"
+                autoComplete="street-address"
               />
               <FieldError name="gifterAddress" className="text-red-600" />
             </div>
@@ -168,6 +188,7 @@ const GiftCardRequestComponent = () => {
               className="mt-1 h-32 w-full rounded border border-gray-300 p-2"
               validation={{ required: true }}
               errorClassName="border-red-500"
+              autoComplete="off"
             />
             <FieldError name="message" className="text-red-600" />
           </div>
@@ -181,6 +202,7 @@ const GiftCardRequestComponent = () => {
               className="mt-1 w-full rounded border border-gray-300 p-2"
               validation={{ required: true }}
               errorClassName="border-red-500"
+              autoComplete="name"
             />
             <FieldError name="gifterName" className="text-red-600" />
           </div>
@@ -200,8 +222,17 @@ const GiftCardRequestComponent = () => {
                 },
               }}
               errorClassName="border-red-500"
+              autoComplete="email"
             />
             <FieldError name="gifterEmail" className="text-red-600" />
+          </div>
+
+          <div className="flex justify-center">
+            <ReCAPTCHA
+              sitekey={process.env.REDWOOD_ENV_RECAPTCHA_SITE_KEY}
+              size="invisible"
+              ref={recaptchaRef}
+            />
           </div>
 
           <SubmitButton label="Request Gift Card" loading={loading} />
