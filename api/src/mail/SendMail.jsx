@@ -2,19 +2,21 @@ import React from 'react'
 
 import {
   Html,
-  Text,
-  Hr,
-  Body,
   Head,
-  Tailwind,
   Preview,
+  Tailwind,
+  Body,
   Container,
   Heading,
-} from '@react-email/components'
+  Hr,
+  Text,
+} from 'some-library' // Replace 'some-library' with the actual library you are using
 
 import { subject } from 'src/mail/subject'
 
 export const ContactUsEmail = ({ name, email, message, additionalFields }) => {
+  const isGiftCardRequest = additionalFields !== undefined
+
   return (
     <Html>
       <Head />
@@ -33,14 +35,45 @@ export const ContactUsEmail = ({ name, email, message, additionalFields }) => {
               <strong>Email:</strong> {email}
             </Text>
             <Text className="text-lg">
-              <strong>Message:</strong>
+              <strong>Message:</strong> {message}
             </Text>
-            <Text className="mt-2">{message}</Text>
-            {/* Add any additional fields for Gift Card Request Form */}
-            {additionalFields && <>{/* Render additional fields here */}</>}
+            {additionalFields && (
+              <>
+                <Text className="text-lg">
+                  <strong>Recipient&apos;s Name:</strong>{' '}
+                  {additionalFields.recipientName}
+                </Text>
+                <Text className="text-lg">
+                  <strong>Gift Card Type:</strong> {additionalFields.giftType}
+                </Text>
+                <Text className="text-lg">
+                  <strong>Delivery Method:</strong>{' '}
+                  {additionalFields.deliveryMethod}
+                </Text>
+                {additionalFields.deliveryMethod === 'E_Gift' && (
+                  <Text className="text-lg">
+                    <strong>Recipient&apos;s Email:</strong>{' '}
+                    {additionalFields.email}
+                  </Text>
+                )}
+                {additionalFields.deliveryMethod === 'Physical' && (
+                  <Text className="text-lg">
+                    <strong>Recipient&apos;s Address:</strong>{' '}
+                    {additionalFields.address}
+                  </Text>
+                )}
+                {additionalFields.deliveryMethod === 'BuyersPhysical' && (
+                  <Text className="text-lg">
+                    <strong>Purchaser&apos;s Address:</strong>{' '}
+                    {additionalFields.gifterAddress}
+                  </Text>
+                )}
+              </>
+            )}
             <Hr className="my-4" />
             <Text className="text-sm text-gray-600">
-              This email was sent from your website&apos;s contact form.
+              This email was sent from your website&apos;s{' '}
+              {isGiftCardRequest ? 'Gift Card Request Form' : 'Contact Form'}.
             </Text>
           </Container>
         </Body>
