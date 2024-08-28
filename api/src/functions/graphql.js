@@ -7,6 +7,8 @@ import services from 'src/services/**/*.{js,ts}'
 import { db } from 'src/lib/db'
 import { logger } from 'src/lib/logger'
 
+require('dotenv').config()
+
 export const handler = createGraphQLHandler({
   loggerConfig: { logger, options: {} },
   directives,
