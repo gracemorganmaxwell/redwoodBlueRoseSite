@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 import {
   Html,
@@ -12,16 +12,18 @@ import {
   Heading,
 } from '@react-email/components'
 
-export const ContactUsEmail = ({ name, email, message }) => {
+import { subject } from 'src/mail/subject'
+
+export const ContactUsEmail = ({ name, email, message, additionalFields }) => {
   return (
     <Html>
       <Head />
-      <Preview>New Contact Form Submission</Preview>
+      <Preview>{subject}</Preview>
       <Tailwind>
         <Body className="bg-gray-100">
           <Container className="mx-auto my-6 max-w-lg rounded-lg bg-white p-6 shadow-md">
             <Heading className="text-center text-xl font-bold">
-              New Contact Form Submission
+              {subject}
             </Heading>
             <Hr className="my-4" />
             <Text className="text-lg">
@@ -34,6 +36,8 @@ export const ContactUsEmail = ({ name, email, message }) => {
               <strong>Message:</strong>
             </Text>
             <Text className="mt-2">{message}</Text>
+            {/* Add any additional fields for Gift Card Request Form */}
+            {additionalFields && <>{/* Render additional fields here */}</>}
             <Hr className="my-4" />
             <Text className="text-sm text-gray-600">
               This email was sent from your website&apos;s contact form.

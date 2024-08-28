@@ -15,6 +15,7 @@ import SubmitButton from 'src/components/FormSubmitBtnComponent/FormSubmitBtnCom
 import HeadingComponent from 'src/components/HeadingComponent/HeadingComponent'
 import LineSeparatorComponent from 'src/components/LineSeparatorComponent/LineSeparatorComponent.jsx'
 import FormBottomPrivacyCopy from 'src/components/PrivacyPolicyMessageComponent/PrivacyPolicyMessageComponent'
+import { sendMail } from 'src/lib/mailer'
 
 const CREATE_GIFT_CARD_REQUEST = gql`
   mutation CreateGiftCardRequestMutation($input: CreateGiftCardRequestInput!) {
@@ -27,7 +28,14 @@ const CREATE_GIFT_CARD_REQUEST = gql`
 const GiftCardRequestComponent = () => {
   const [deliveryMethod, setDeliveryMethod] = useState('')
   const [create, { loading, error }] = useMutation(CREATE_GIFT_CARD_REQUEST, {
-    onCompleted: () => {
+    onCompleted: (data) => {
+      sendMail({
+        subject: 'New Gift Card Request',
+        name: data.input.gifterName,
+        email: data.input.gifterEmail,
+        message: data.input.message,
+        additionalFields: data.input,
+      })
       alert('Your gift card request has been submitted!')
     },
   })
