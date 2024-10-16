@@ -7,9 +7,26 @@ export const schema = gql`
     createdAt: DateTime!
   }
 
+  type GiftCardRequest {
+    id: Int!
+    name: String!
+    email: String!
+    message: String!
+    recipientName: String
+    giftType: String
+    deliveryMethod: String
+    address: String
+    gifterAddress: String
+    createdAt: DateTime!
+  }
+
   type Query {
-    contacts: [Contact!]! @requireAuth
-    contact(id: Int!): Contact @requireAuth
+    contacts: [Contact!]! @requireAuth(roles: ["admin", "business_owner"])
+    contact(id: Int!): Contact @requireAuth(roles: ["admin", "business_owner"])
+    giftCardRequests: [GiftCardRequest!]!
+      @requireAuth(roles: ["admin", "business_owner"])
+    giftCardRequest(id: Int!): GiftCardRequest
+      @requireAuth(roles: ["admin", "business_owner"])
   }
 
   input CreateContactInput {
@@ -18,15 +35,48 @@ export const schema = gql`
     message: String!
   }
 
+  input CreateGiftCardRequestInput {
+    name: String!
+    email: String!
+    message: String!
+    recipientName: String
+    giftType: String
+    deliveryMethod: String
+    address: String
+    gifterAddress: String
+  }
+
   input UpdateContactInput {
     name: String
     email: String
     message: String
   }
 
+  input UpdateGiftCardRequestInput {
+    name: String
+    email: String
+    message: String
+    recipientName: String
+    giftType: String
+    deliveryMethod: String
+    address: String
+    gifterAddress: String
+  }
+
   type Mutation {
-    createContact(input: CreateContactInput!): Contact! @requireAuth
-    updateContact(id: Int!, input: UpdateContactInput!): Contact! @requireAuth
-    deleteContact(id: Int!): Contact! @requireAuth
+    createContact(input: CreateContactInput!): Contact! @skipAuth
+    updateContact(id: Int!, input: UpdateContactInput!): Contact!
+      @requireAuth(roles: ["admin", "business_owner"])
+    deleteContact(id: Int!): Contact!
+      @requireAuth(roles: ["admin", "business_owner"])
+
+    createGiftCardRequest(input: CreateGiftCardRequestInput!): GiftCardRequest!
+      @skipAuth
+    updateGiftCardRequest(
+      id: Int!
+      input: UpdateGiftCardRequestInput!
+    ): GiftCardRequest! @requireAuth(roles: ["admin", "business_owner"])
+    deleteGiftCardRequest(id: Int!): GiftCardRequest!
+      @requireAuth(roles: ["admin", "business_owner"])
   }
 `

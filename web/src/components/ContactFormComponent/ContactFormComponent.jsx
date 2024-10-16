@@ -15,7 +15,6 @@ import { gql, useMutation } from '@redwoodjs/web'
 import FormSubmitBtnComponent from 'src/components/FormSubmitBtnComponent/FormSubmitBtnComponent'
 import HeadingComponent from 'src/components/HeadingComponent/HeadingComponent'
 import FormBottomPrivacyCopy from 'src/components/PrivacyPolicyMessageComponent/PrivacyPolicyMessageComponent'
-import { sendMail } from 'src/lib/mailer'
 
 const CREATE_CONTACT = gql`
   mutation CreateContactMutation($input: CreateContactInput!) {
@@ -27,14 +26,12 @@ const CREATE_CONTACT = gql`
 
 const ContactFormComponent = () => {
   const [createContact, { loading, error }] = useMutation(CREATE_CONTACT, {
-    onCompleted: (data) => {
-      sendMail({
-        subject: 'New Contact Form Submission',
-        name: data.input.name,
-        email: data.input.email,
-        message: data.input.message,
-      })
+    onCompleted: () => {
       alert('Thank you for your message!')
+    },
+    onError: (error) => {
+      console.error(error)
+      alert('There was an error submitting your message.')
     },
   })
   const recaptchaRef = useRef(null)

@@ -5,8 +5,8 @@
 // https://www.prisma.io/docs/orm/prisma-migrate
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL")
 }
 
 generator client {
@@ -14,9 +14,6 @@ generator client {
   binaryTargets = "native"
 }
 
-// Define your own datamodels here and run `yarn redwood prisma migrate dev`
-// to create migrations for them and apply to your dev DB.
-// TODO: Please remove the following example:
 model Contact {
   id      Int     @id @default(autoincrement())
   name    String
@@ -39,4 +36,20 @@ model GiftCardRequest {
   createdAt         DateTime @default(now())
 }
 
+model Role {
+  id     Int    @id @default(autoincrement())
+  userId String
+  role   String
 
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, role])
+}
+
+model User {
+  id    String @id @default(cuid())
+  email String @unique
+  // Add other fields as needed
+
+  roles Role[]
+}

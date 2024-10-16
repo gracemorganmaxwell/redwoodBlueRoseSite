@@ -10,11 +10,16 @@ import {
   Heading,
   Hr,
   Text,
-} from 'some-library' // Replace 'some-library' with the actual library you are using
+} from '@react-email/components' // Example library
+import PropTypes from 'prop-types'
 
-import { subject } from 'src/mail/subject'
-
-export const ContactUsEmail = ({ name, email, message, additionalFields }) => {
+export const ContactUsEmail = ({
+  subject,
+  name,
+  email,
+  message,
+  additionalFields,
+}) => {
   const isGiftCardRequest = additionalFields !== undefined
 
   return (
@@ -37,7 +42,7 @@ export const ContactUsEmail = ({ name, email, message, additionalFields }) => {
             <Text className="text-lg">
               <strong>Message:</strong> {message}
             </Text>
-            {additionalFields && (
+            {isGiftCardRequest && (
               <>
                 <Text className="text-lg">
                   <strong>Recipient&apos;s Name:</strong>{' '}
@@ -80,4 +85,12 @@ export const ContactUsEmail = ({ name, email, message, additionalFields }) => {
       </Tailwind>
     </Html>
   )
+}
+
+ContactUsEmail.propTypes = {
+  subject: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  message: PropTypes.string.isRequired,
+  additionalFields: PropTypes.object,
 }
