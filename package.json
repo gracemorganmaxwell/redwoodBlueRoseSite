@@ -7,10 +7,10 @@
     ]
   },
   "devDependencies": {
-    "@redwoodjs/cli-data-migrate": "7.7.4",
-    "@redwoodjs/cli-storybook": "7.7.4",
-    "@redwoodjs/core": "7.7.4",
-    "@redwoodjs/project-config": "7.7.4",
+    "@redwoodjs/cli-data-migrate": "8.4.0",
+    "@redwoodjs/cli-storybook": "8.4.0",
+    "@redwoodjs/core": "8.4.0",
+    "@redwoodjs/project-config": "8.4.0",
     "prettier-plugin-tailwindcss": "0.4.1"
   },
   "eslintConfig": {
@@ -27,12 +27,15 @@
   "dependencies": {
     "@cloudinary/react": "^1.13.0",
     "@cloudinary/url-gen": "^1.20.0",
-    "@redwoodjs/auth": "^8.4.0",
+    "@redwoodjs/auth": "8.4.0",
     "auth0-react": "^3.1.0",
     "cloudinary-react": "^1.8.1",
     "dotenv": "^16.4.5",
     "mailer": "^0.6.7",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
     "react-google-recaptcha": "^3.1.0",
+    "react-router-dom": "^6.27.0",
     "yarn": "^1.22.22"
   }
 }

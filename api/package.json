@@ -5,16 +5,16 @@
   "dependencies": {
     "@cloudinary/url-gen": "^1.19.0",
     "@react-email/components": "^0.0.22",
-    "@redwoodjs/api": "^8.4.0",
-    "@redwoodjs/graphql-server": "7.7.4",
-    "@redwoodjs/mailer-core": "7.7.4",
-    "@redwoodjs/mailer-handler-nodemailer": "7.7.4",
-    "@redwoodjs/mailer-renderer-react-email": "7.7.4",
+    "@redwoodjs/api": "8.4.0",
+    "@redwoodjs/graphql-server": "8.4.0",
+    "@redwoodjs/mailer-core": "8.4.0",
+    "@redwoodjs/mailer-handler-nodemailer": "8.4.0",
+    "@redwoodjs/mailer-renderer-react-email": "8.4.0",
     "@supabase/supabase-js": "^2.45.4",
     "cloudinary-react": "^1.8.1"
   },
   "devDependencies": {
-    "@redwoodjs/mailer-handler-in-memory": "7.7.4",
-    "@redwoodjs/mailer-handler-studio": "7.7.4"
+    "@redwoodjs/mailer-handler-in-memory": "8.4.0",
+    "@redwoodjs/mailer-handler-studio": "8.4.0"
   }
 }
