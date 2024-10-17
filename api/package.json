@@ -11,7 +11,9 @@
     "@redwoodjs/mailer-handler-nodemailer": "8.4.0",
     "@redwoodjs/mailer-renderer-react-email": "8.4.0",
     "@supabase/supabase-js": "^2.45.4",
-    "cloudinary-react": "^1.8.1"
+    "cloudinary-react": "^1.8.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@redwoodjs/mailer-handler-in-memory": "8.4.0",
