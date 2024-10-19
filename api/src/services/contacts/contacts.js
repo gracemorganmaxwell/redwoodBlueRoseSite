@@ -1,11 +1,23 @@
-import { supabase } from 'src/lib/supabase'
+import { db } from 'src/lib/db'
+import { sendMail } from 'src/lib/mailer'
 
 export const createContact = async ({ input }) => {
-  const { data, error } = await supabase.from('contacts').insert(input).single()
+  const { data, error } = await db
+    .from('contacts')
+    .insert(input)
+    .single()
 
   if (error) {
     throw error
   }
+
+  // Send email notification
+  await sendMail({
+    subject: 'New Contact Form Submission',
+    name: input.name,
+    email: input.email,
+    message: input.message,
+  })
 
   return data
 }

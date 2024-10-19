@@ -2,26 +2,25 @@ import { db } from 'src/lib/db'
 import { sendMail } from 'src/lib/mailer'
 
 export const createGiftCardRequest = async ({ input }) => {
-  const giftCardRequest = await db.giftCardRequest.create({
-    data: input,
-  })
+  const { data, error } = await db
+    .from('gift_card_requests')
+    .insert(input)
+    .single()
 
-  // Send the email after saving the gift card request
+  if (error) {
+    throw error
+  }
+
+  // Send email notification
   await sendMail({
     subject: 'New Gift Card Request',
-    name: input.name,
-    email: input.email,
-    message: input.message,
-    additionalFields: {
-      recipientName: input.recipientName,
-      giftType: input.giftType,
-      deliveryMethod: input.deliveryMethod,
-      address: input.address,
-      gifterAddress: input.gifterAddress,
-    },
+    name: input.gifterName,
+    email: input.gifterEmail,
+    message: `Gift Type: ${input.giftType}, Recipient: ${input.recipientName}`,
+    additionalFields: input,
   })
 
-  return giftCardRequest
+  return data
 }
 
 export const updateGiftCardRequest = async ({ id, input, context }) => {
