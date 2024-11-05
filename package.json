@@ -11,7 +11,8 @@
     "@redwoodjs/core": "8.4.0",
     "@redwoodjs/project-config": "8.4.0",
     "prettier": "^2.8.0",
-    "prettier-plugin-tailwindcss": "0.4.1"
+    "prettier-plugin-tailwindcss": "0.4.1",
+    "vercel": "^37.11.0"
   },
   "eslintConfig": {
     "extends": "@redwoodjs/eslint-config",
@@ -23,7 +24,7 @@
   "prisma": {
     "seed": "yarn rw exec seed"
   },
-  "packageManager": "yarn@4.1.1",
+  "packageManager": "yarn@1.22.22",
   "dependencies": {
     "@cloudinary/react": "^1.13.0",
     "@cloudinary/url-gen": "^1.20.0",

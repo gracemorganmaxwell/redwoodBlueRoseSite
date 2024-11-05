@@ -1,5 +1,4 @@
 import React from 'react'
-
 import {
   Html,
   Head,
@@ -10,7 +9,7 @@ import {
   Heading,
   Hr,
   Text,
-} from '@react-email/components' // Example library
+} from '@react-email/components'
 import PropTypes from 'prop-types'
 
 export const ContactUsEmail = ({
@@ -45,32 +44,27 @@ export const ContactUsEmail = ({
             {isGiftCardRequest && (
               <>
                 <Text className="text-lg">
-                  <strong>Recipient&apos;s Name:</strong>{' '}
-                  {additionalFields.recipientName}
+                  <strong>Recipient&apos;s Name:</strong> {additionalFields.recipientName}
                 </Text>
                 <Text className="text-lg">
                   <strong>Gift Card Type:</strong> {additionalFields.giftType}
                 </Text>
                 <Text className="text-lg">
-                  <strong>Delivery Method:</strong>{' '}
-                  {additionalFields.deliveryMethod}
+                  <strong>Delivery Method:</strong> {additionalFields.deliveryMethod}
                 </Text>
                 {additionalFields.deliveryMethod === 'E_Gift' && (
                   <Text className="text-lg">
-                    <strong>Recipient&apos;s Email:</strong>{' '}
-                    {additionalFields.email}
+                    <strong>Recipient&apos;s Email:</strong> {additionalFields.email}
                   </Text>
                 )}
                 {additionalFields.deliveryMethod === 'Physical' && (
                   <Text className="text-lg">
-                    <strong>Recipient&apos;s Address:</strong>{' '}
-                    {additionalFields.address}
+                    <strong>Recipient&apos;s Address:</strong> {additionalFields.address}
                   </Text>
                 )}
                 {additionalFields.deliveryMethod === 'BuyersPhysical' && (
                   <Text className="text-lg">
-                    <strong>Purchaser&apos;s Address:</strong>{' '}
-                    {additionalFields.gifterAddress}
+                    <strong>Purchaser&apos;s Address:</strong> {additionalFields.gifterAddress}
                   </Text>
                 )}
               </>

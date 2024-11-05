@@ -3,12 +3,13 @@ import { sendMail } from 'src/lib/mailer'
 
 export const createGiftCardRequest = async ({ input }) => {
   const { data, error } = await db
-    .from('gift_card_requests')
-    .insert(input)
-    .single()
+    .giftCardRequest
+    .create({
+      data: input,
+    })
 
   if (error) {
-    throw error
+    throw new Error(error.message)
   }
 
   // Send email notification
@@ -23,17 +24,4 @@ export const createGiftCardRequest = async ({ input }) => {
   return data
 }
 
-export const updateGiftCardRequest = async ({ id, input, context }) => {
-  // Authorization is handled by @requireAuth
-  return db.giftCardRequest.update({
-    where: { id },
-    data: input,
-  })
-}
-
-export const deleteGiftCardRequest = async ({ id, context }) => {
-  // Authorization is handled by @requireAuth
-  return db.giftCardRequest.delete({
-    where: { id },
-  })
-}
+// Similarly update updateGiftCardRequest and deleteGiftCardRequest as needed

@@ -1,15 +1,6 @@
 import React, { useRef } from 'react'
-
 import ReCAPTCHA from 'react-google-recaptcha'
-
-import {
-  Form,
-  FormError,
-  FieldError,
-  Label,
-  TextField,
-  TextAreaField,
-} from '@redwoodjs/forms'
+import { Form, FormError, FieldError, Label, TextField, TextAreaField } from '@redwoodjs/forms'
 import { gql, useMutation } from '@redwoodjs/web'
 
 import FormSubmitBtnComponent from 'src/components/FormSubmitBtnComponent/FormSubmitBtnComponent'

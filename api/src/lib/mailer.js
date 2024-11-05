@@ -1,15 +1,15 @@
 import nodemailer from 'nodemailer'
+import sendGridTransport from 'nodemailer-sendgrid'
 import { renderToStaticMarkup } from 'react-dom/server'
 
 import { ContactUsEmail } from 'src/mail/SendMail'
 
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.GMAIL_USER, // Your Gmail address
-    pass: process.env.GMAIL_PASS, // Your Gmail password or App Password
-  },
-})
+// Configure Nodemailer to use SendGrid
+const transporter = nodemailer.createTransport(
+  sendGridTransport({
+    apiKey: process.env.SENDGRID_API_KEY,
+  })
+)
 
 /**
  * Sends an email using the ContactUsEmail React component as HTML content.
@@ -39,8 +39,8 @@ export const sendMail = async ({
   )
 
   const mailOptions = {
-    from: process.env.GMAIL_USER,
-    to: 'gracie.test.digitalcreations@gmail.com',
+    from: process.env.SENDGRID_FROM_EMAIL,
+    to: process.env.BUSINESS_EMAIL,
     subject: subject || 'New Form Submission',
     html: htmlContent,
   }

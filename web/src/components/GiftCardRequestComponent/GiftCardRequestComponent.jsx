@@ -1,16 +1,6 @@
 import React, { useRef } from 'react'
-
 import ReCAPTCHA from 'react-google-recaptcha'
-
-import {
-  Form,
-  FormError,
-  FieldError,
-  Label,
-  TextField,
-  SelectField,
-  TextAreaField,
-} from '@redwoodjs/forms'
+import { Form, FormError, FieldError, Label, TextField, SelectField, TextAreaField } from '@redwoodjs/forms'
 import { gql, useMutation } from '@redwoodjs/web'
 
 import SubmitButton from 'src/components/FormSubmitBtnComponent/FormSubmitBtnComponent'
@@ -163,9 +153,8 @@ const GiftCardRequestComponent = () => {
               errorClassName="border-red-500 text-left w-full rounded border p-2"
             >
               <option value="">Select Gift Card Type</option>
-              <option value="Holiday">Holiday</option>
-              <option value="Birthday">Birthday</option>
-              <option value="Anniversary">Anniversary</option>
+              <option value="Monetary">Monetary</option>
+              <option value="Service">Service</option>
             </SelectField>
             <FieldError name="giftType" className="text-red-600" />
           </div>
@@ -246,4 +235,4 @@ const GiftCardRequestComponent = () => {
   )
 }
 
-export default GiftCardRequestComponent
+export default GiftCardRequestComponent  

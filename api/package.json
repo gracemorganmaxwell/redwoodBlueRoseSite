@@ -1,6 +1,6 @@
 {
   "name": "api",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@cloudinary/url-gen": "^1.19.0",
@@ -10,13 +10,19 @@
     "@redwoodjs/mailer-core": "8.4.0",
     "@redwoodjs/mailer-handler-nodemailer": "8.4.0",
     "@redwoodjs/mailer-renderer-react-email": "8.4.0",
+    "@sendgrid/mail": "^8.1.4",
     "@supabase/supabase-js": "^2.45.4",
     "cloudinary-react": "^1.8.1",
+    "nodemailer": "^6.9.16",
+    "nodemailer-sendgrid": "^1.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@redwoodjs/mailer-handler-in-memory": "8.4.0",
     "@redwoodjs/mailer-handler-studio": "8.4.0"
+  },
+  "resolutions": {
+    "graphql": "^16.6.0"
   }
 }
