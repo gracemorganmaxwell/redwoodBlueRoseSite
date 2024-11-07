@@ -1,8 +1,4 @@
-// Don't forget to tell Prisma about your edits to this file using
-// `yarn rw prisma migrate dev` or `yarn rw prisma db push`.
-// `migrate` is like committing while `push` is for prototyping.
-// Read more about both here:
-// https://www.prisma.io/docs/orm/prisma-migrate
+// api/db/schema.prisma
 
 datasource db {
   provider = "postgresql"
@@ -11,27 +7,27 @@ datasource db {
 
 generator client {
   provider      = "prisma-client-js"
-  binaryTargets = "native"
+  binaryTargets = ["native"]
 }
 
 model Contact {
-  id      Int     @id @default(autoincrement())
-  name    String
-  email   String
-  message String
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  message   String
   createdAt DateTime @default(now())
 }
 
 model GiftCardRequest {
-  id                Int      @id @default(autoincrement())
-  recipientName     String
-  giftType          String   // "Monetary" or "Service"
-  deliveryMethod    String   // "E_Gift" or "Physical"
-  email             String?  // Optional, required for e-gift cards
-  address           String?  // Optional, required for physical gift cards
-  message           String
-  gifterName        String
-  gifterEmail       String
-  note              String   @default("Payment is via online banking and I'll email you to discuss")
-  createdAt         DateTime @default(now())
+  id              Int      @id @default(autoincrement())
+  recipientName   String
+  giftType        String   // "Monetary" or "Service"
+  deliveryMethod  String   // "E_Gift" or "Physical"
+  email           String?  // Optional, required for e-gift cards
+  address         String?  // Optional, required for physical gift cards
+  message         String
+  gifterName      String
+  gifterEmail     String
+  note            String   @default("Payment is via online banking and I'll email you to discuss")
+  createdAt       DateTime @default(now())
 }

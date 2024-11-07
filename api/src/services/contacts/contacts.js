@@ -1,26 +1,7 @@
-import { db } from 'src/lib/db'
-import { sendMail } from 'src/lib/mailer'
+import prisma from 'src/lib/prisma'
 
-export const createContact = async ({ input }) => {
-  const { data, error } = await db
-    .contact
-    .create({
-      data: input,
-    })
-
-  if (error) {
-    throw new Error(error.message)
-  }
-
-  // Send email notification
-  await sendMail({
-    subject: 'New Contact Form Submission',
-    name: input.name,
-    email: input.email,
-    message: input.message,
-  })
-
-  return data
+export const contacts = () => {
+  return prisma.contact.findMany()
 }
 
-// Similarly update updateContact and deleteContact as needed
+// Other CRUD operations using the singleton Prisma client
